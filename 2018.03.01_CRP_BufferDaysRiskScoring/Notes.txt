@@ -1,0 +1,5 @@
+Ask about same job names in repo
+
+Can the values be moved to physical table? If they change, should be physical table. If no change, can leave in SP.
+
+Where's SSIS package
