@@ -1,0 +1,58 @@
+--============================================================================================================
+-- Approved
+--============================================================================================================
+Outbound.UpdateShipNotificationToProcessed.sql
+1.) Approved
+
+Outbound.ShipNotificationContract.sql
+1.) Approved
+
+Outbound.ShipNotificationMessage.sql
+1.) Approved
+
+Outbound.ShipNotificationQueue.sql
+1.) Approved
+
+Outbound.ShipNotificationService.sql
+1.) Approved
+
+outbound.sql
+1.) Approved
+
+Outbound.InsertShipNotificationLineItem.sql
+1.) Remove commented out code if not needed
+-- 10/23
+1.) Approved
+
+Outbound.InsertShipNotificationLoadReference.sql
+1.) Remove commented out code if not needed
+-- 10/23
+1.) Approved
+
+Outbound.InsertShipNotificationWarehouse.sql
+1.) Remove commented out code if not needed
+-- 10/23
+1.) Approved
+
+SqlJob.GetOutboundShipmentNotificationQueue
+1.) Please change job schedule name to 7 X PW - MTWTFSS - 17:30
+-- 10/23
+1.) What is the below for:
+
+if  not exists (select name from msdb.dbo.sysoperators where name = N'TMT')
+Begin
+	exec msdb.dbo.sp_add_operator @name=N'TMT', 
+		@enabled=0, 
+		@email_address=N'qa@echo.com'
+-- 10/24
+1.) Approved
+
+dbo.SendBrokerMessage.sql
+1.) Can you demonstrate what this SP does?
+-- 10/24
+1.) Approved
+
+Outbound.ProcessShipNotificationMessage.sql
+1.) Can [dbo].[OutboundShipNotificationQueue] be populated so I can test / understand this SP better
+-- 10/24
+1.) Approved

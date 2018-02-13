@@ -1,0 +1,21 @@
+Inbound.GetDocumentsForReprocessing.sql
+1.) CREATE NONCLUSTERED INDEX IX_Inbound_DocumentRequest_RowCreated_DocumentRequestID ON Inbound.DocumentRequest (RowCreated, DocumentRequestId) 
+WHERE 	IsProcessed = 0 and IsCarrierEligible = 1 and IsDocumentTypeEligible = 1 
+2.) How many IDs are exepcted to be in @DocumentRequestIds each time this runs?
+3.) Instead of doing a subquery in the WHERE claue, join on @DocumentRequestIds instead
+4.) Since TRANSACTION ISOLATION is set to read uncommitted, you don't need the NO LOCK hints
+--01/17
+1.) Approved
+
+
+Inbound.CreateUpdateDocumentResponseRequest.sql
+1.) In UPDATE statement, remove the subquery from WHERE clause and join on table type instead
+
+2.) What is the point of calling [Inbound].[UpdateDocumentRequestToProcessed]? Can we just include that update in the SP
+
+
+Inbound.TT_DocumentResponse.sql
+1.) Approved
+
+Inbound.DocumentResponse.sql
+1.) Approved

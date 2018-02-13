@@ -1,0 +1,201 @@
+Nvarchar because it is okay to fail on Optimizer side but don't want to fail on integrations side
+
+Inbound.TLShipmentStopReference.sql
+1.) Where are PKs generated from?
+2.) Possibly remove MessageID / StopSetID and just make ShipmentStopID the FK. (Join on ShipmentStopID)
+2A.) Add PK
+-- 10/3
+1.) Wrong spelling of table name in PK naming
+2.) Wrong table name in DFs
+-- 10/6
+1.) DF wrong table name
+-- 10/9
+1.) Approved
+
+Inbound.GetInboundTLShipmentForReprocessing.sql
+1.) Line 49 - Wrong schema/table?
+2.) Line 118 - Wrong schema/table?
+3.) Line 133 - Wrong schema/table?
+4.) Line 178 - Wrong schema/table?
+5.) Line 221, 223 - Wrong schema/table?
+6.) Line 239, 241 - Wrong schema/table?
+-- 10/6
+1.) Line 81, 273 - Wrong spelling for column 
+-- 10/9
+1.) Approved
+
+================================================================================================================================
+-- Approved
+--================================================================================================================================
+Inbound.CreateUpdateTLShipmentStop.sql
+1.) Add header comments (created by, created date, description)
+-- 10/6
+1.) Approved
+
+Inbound.CreateUpdateTLShipmentStopLineItem.sql
+1.) Add header comments (created by, created date, description)
+-- 10/6
+1.) Approved
+
+Inbound.CreateUpdateTLShipmentStopReference.sql
+1.) Add header comments (created by, created date, description)
+-- 10/6
+1.) Approved
+
+Inbound.GetInboundLTLShipmentForReprocessing.sql
+1.) Line 221 - Should it be TLin instead of Inbound schema?
+2.) Line 239 - Wrong schema?
+-- 10/6
+1.) Approved
+
+Inbound.CreateUpdateLTLShipmentStopReference.sql
+1.) Add header comments (created by, created date, description)
+-- 10/6
+1.) Approved
+
+Inbound.CreateUpdateLTLShipmentStopLineItem.sql
+1.) Add header comments (created by, created date, description)
+-- 10/6
+1.) Approved
+
+Inbound.CreateUpdateTLShipmentReference.sql
+1.) Add header comments (created by, created date, description)
+-- 10/6
+1.) Approved
+
+Inbound.CreateUpdateLTLShipmentReference.sql
+1.) Add header comments (created by, created date, description)
+-- 10/6
+1.) Approved
+
+Inbound.CreateUpdateLTLShipmentStop.sql
+1.) Add header comments (created by, created date, description)
+-- 10/6
+1.) Approved
+
+Inbound.TT_LTLShipmentStopLineItem.sql
+1.) What is StopSetID in the table LTLin.ShipmentStopLineItem? If it is [ShipmentStopID], why BIGINT vs SMALLINT?
+-- 10/6
+1.) Approved
+
+Inbound.TT_LTLShipmentStop.sql
+1.) Is MessageID needed in the table type?
+-- 10/6
+1.) Approved
+
+Inbound.TT_LTLShipmentStopReference.sql
+1.) Is MessageID needed?
+2.) What is StopSetID?
+-- 10/6
+1.) Approved
+
+Inbound.TT_TLShipmentStopReference.sql
+1.) Is MessageID needed?
+2.) What is StopSetID?
+-- 10/6
+1.) Approved
+
+Inbound.TT_TLShipmentStop.sql
+1.) Is MessageID needed in the table type?
+-- 10/6
+1.) Approved
+
+Inbound.TT_TLShipmentStopLineItem.sql
+1.) Is it suppose to be "LHazMat"?
+2.) What is StopSetID in the table LTLin.ShipmentStopLineItem? If it is [ShipmentStopID], why BIGINT vs SMALLINT?
+-- 10/6
+1.) Approved
+
+Inbound.LTLShipmentStopReference.sql
+1.) Where are PKs generated from?
+2.) Possibly remove MessageID / StopSetID (they are in main table) and just make ShipmentStopID the FK. (Join on ShipmentStopID)
+2A.) Add PK
+-- 10/3
+1.) Rearrange columns so PKs are at top
+2.) Incorrect spelling of tbale name in PK naming
+-- 10/6
+1.) Approved
+
+Inbound.LTLShipment.sql
+1.) Move Message ID to top becasue it's the primary key
+2.) Remove Shipment_ prefix from columns
+3.) Why nvarchar instead of varchar
+4.) Shipment_EquipmentLenghtCode (spelling)
+5.) Make HazMat a bit
+-- 10/03
+1.) Approved
+
+Inbound.LTLShipmentReference.sql
+1.) Where is MessageID / ShipmentReferenceSetID coming from?
+2.) Why two PKs?
+-- 10/03
+1.) Approved
+
+Inbound.LTLShipmentStop.sql
+1.) Rename ShipmentStopID to LTLShipmentStopID
+2.) Why all nvarchar? Optimizer (destination) is VARCHAR
+3.) Rearrange columns for PKs (if keeping both)
+4.) Why are both columns PK (ShipmentStopID is id 1,1 and already unique). Is StopSetID really needed as PK as well?
+-- 10/03
+1.) Approved 
+
+Inbound.LTLShipmentStopLineItem.sql
+1.) Where are PKs generated from?
+2.) Rearrange columns (PKs at top)
+3.) Make HazMat BIT
+-- 10/03
+1.) Approved
+
+Inbound.TLShipment.sql
+1.) Move Message ID to top becasue it's the primary key
+2.) Remove Shipment_ prefix from columns
+3.) Why nvarchar instead of varchar
+4.) Shipment_EquipmentLenghtCode (spelling)
+5.) Make HazMat a bit
+-- 10/03
+1.) Approved
+
+Inbound.TLShipmentReference.sql
+1.) Where is MessageID / ShipmentReferenceSetID coming from?
+2.) Why two PKs?
+-- 10/03
+1.) Approved
+
+Inbound.TLShipmentStop.sql
+1.) Rename ShipmentStopID to TLShipmentStopID
+2.) Why all nvarchar? Optimizer (destination) is VARCHAR
+3.) Rearrange columns for PKs (if keeping both)
+4.) Why are both columns PK (ShipmentStopID is id 1,1 and already unique). Is StopSetID really needed as PK as well?
+-- 10/03
+1.) Approved
+
+Inbound.TLShipmentStopLineItem.sql
+1.) Where are PKs generated from?
+2.) Rearrange columns (PKs at top)
+3.) Make HazMat BIT
+-- 10/03
+1.) Approved
+
+Inbound.TT_TLShipmentReference.sql
+1.) Approved 10/04
+
+Inbound.TT_LTLShipment.sql
+1.) Approved 10/04
+
+Inbound.TT_LTLShipmentReference.sql
+1.) Approved 10/04
+
+Inbound.TT_TLShipment.sql
+1.) Approved 10/04
+
+Inbound.CreateUpdateTLShipment.sql
+1.) Approved 10/04
+
+Inbound.CreateUpdateTLInboundShipment.sql
+1.) Approved 10/04
+
+Inbound.CreateUpdateLTLInboundShipment.sql
+1.) Approved 10/04
+
+Inbound.CreateUpdateLTLShipment.sql
+1.) Approved 10/04

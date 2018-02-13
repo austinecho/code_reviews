@@ -1,0 +1,9 @@
+1.) Create index
+CREATE NONCLUSTERED INDEX IX_UploadImageStaging ON dbo.UploadImageStaging (PaperworkType) INCLUDE (LoadID)
+
+2.) Rewrite view: 
+-- Use a CTE to select LoadIds created within 3 years and where the mode is TL
+-- Create a second CTE to grab the LoadId, UploadId, and CarrierGuid (join the first CTE to tblLoads on LoadId)
+-- Use the second CTE in the SELECT statement of the view to grab the needed values.
+
+I can show you an example if needed.

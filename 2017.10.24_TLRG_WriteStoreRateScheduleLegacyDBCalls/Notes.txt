@@ -1,0 +1,121 @@
+#1
+-- Create index - CREATE NONCLUSTERED INDEX IX_Carrier_Carrier_CarrierGuid ON Carrier.Carrier (CarrierGuid)
+
+#2
+-- CREATE NONCLUSTERED INDEX IX_Carrier_Contact_AggregateCarrierId ON Carrier.Contact (AggregateCarrierId) 
+-- Rewrite to below 
+exec sp_executesql N'WITH CTE_CarrierId AS
+(
+SELECT Id
+FROM Carrier.Carrier
+WHERE CarrierGuid = @0
+),
+CTE_ContactId AS
+(
+SELECT CO.Id 
+FROM Carrier.Contact AS CO
+INNER JOIN CTE_CarrierId AS CI
+ON CO.AggregateCarrierId = CI.Id
+)
+SELECT CO.Id, CO.AggregateCarrierId, CO.FirstName, CO.LastName, CO.Title, CO.Email, CO.Phone, CO.SystemCreatedDate, CO.SystemModifiedDate, CO.SystemCreatedBy, CO.SystemModifiedBy 
+FROM Carrier.Contact AS CO
+INNER JOIN CTE_ContactId AS CI
+ON CO.Id = CI.Id' ,N'@0 varchar(8000)',@0='5A27D73D-BD4E-4148-8E9B-A1C62E5DA449'
+
+#3
+-- System table, fine
+
+#4
+
+-- Add index CREATE NONCLUSTERED INDEX IX_Carrier_Carrier_CarrierKey ON Carrier.Carrier (CarrierKey)
+-- Rewrite to below
+exec sp_executesql N'WITH CTE_CarrierKeyId
+AS
+(
+SELECT Id
+FROM Carrier.Carrier
+WHERE CarrierKey = @0
+)
+SELECT C.Id, C.CarrierKey, C.CarrierGuid, C.CarrierName, C.BillingAddress, C.BillingCity, 
+C.BillingState, C.BillingZip, C.CarrierId, C.SCAC, C.IsEDIEnabled, C.IsActive, C.SystemCreatedDate, C.SystemModifiedDate, C.SystemCreatedBy, C.SystemModifiedBy, C.Version, C.SystemIsDeleted 
+FROM Carrier.Carrier AS C
+INNER JOIN CTE_CarrierKeyId AS CK
+ON C.Id = CK.Id',N'@0 varchar(8000)',@0='0A435AD3-EC36-4C32-85D9-1E40C2EDEA20'
+
+#5
+
+-- Rewrite to below 
+EXEC sp_executesql N'WITH CTE_CarrierKeyID
+AS
+(
+SELECT Id
+FROM Carrier.Carrier
+WHERE CarrierKey = @0
+),
+CTE_ContactId 
+AS
+(
+SELECT CO.Id
+FROM Carrier.Contact AS CO
+INNER JOIN CTE_CarrierKeyID AS CK
+ON CO.AggregateCarrierId = CK.Id
+)
+
+SELECT  CO.Id ,
+        CO.AggregateCarrierId ,
+        CO.FirstName ,
+        CO.LastName ,
+        CO.Title ,
+        CO.Email ,
+        CO.Phone ,
+        CO.SystemCreatedDate ,
+        CO.SystemModifiedDate ,
+        CO.SystemCreatedBy ,
+        CO.SystemModifiedBy
+FROM    Carrier.Contact AS CO
+INNER JOIN CTE_ContactId AS CI
+ON CO.Id = CI.Id', N'@0 varchar(8000)',
+    @0 = '7C21E795-85AD-4F86-BF41-F293C1ABCCDA';
+
+#6
+
+-- Same as #4, rewrite as mentioned in #4
+
+#7
+
+-- Same as #5, rewrite as mentioned in #5
+
+#8
+
+-- CREATE NONCLUSTERED INDEX IX_Customer_Customer_CustomerId ON Customer.Customer (CustomerId)
+
+#9
+
+-- Same as #8, index should resolve 
+
+#10
+
+-- CREATE NONCLUSTERED INDEX IX_Customer_HoursOfOperation_AggregateCustomerId ON Customer.HoursOfOperation (AggregateCustomerId)
+-- Rewrite to below query:
+
+EXEC sp_executesql N'WITH CTE_CustomerGuidId
+AS
+(
+SELECT Id
+FROM Customer.Customer
+WHERE CustomerGuid = @0
+)
+, CTE_CustomerHoursId
+AS
+(
+SELECT HO.Id 
+FROM Customer.HoursOfOperation AS HO
+INNER JOIN CTE_CustomerGuidId AS CG
+ON HO.AggregateCustomerId = CG.Id
+)
+SELECT HO.Id, HO.AggregateCustomerId, HO.Week, HO.Day, HO.StartTime, HO.EndTime, HO.IsHoliday, HO.IsClosed, HO.SystemCreatedDate, HO.SystemModifiedDate, 
+HO.SystemCreatedBy, HO.SystemModifiedBy 
+FROM Customer.HoursOfOperation AS HO
+INNER JOIN CTE_CustomerHoursId AS HI
+ON HO.Id = HI.Id', N'@0 uniqueidentifier',
+    @0 = 'FF3CEF2F-1720-4254-8AAE-89878371942D';

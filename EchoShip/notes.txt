@@ -1,0 +1,21 @@
+Notes:
+
+Good: Seeks, scans on small tables / reference tables
+
+Bad: Key lookup, scans on big tables
+
+
+
+3/28/2017
+Need to stay away from .dbo schema. Everything should be in a meaningful schema.
+http://devwiki/display/DM/SQL+Server+Object+Naming+Convention
+
+3/29/2017
+[SearchEngine].[WarehouseOperations]
+Create nonclustered index on clientWarehouse (ModifiedDate)
+	    	--CREATE NONCLUSTERED INDEX IX_clientWarehouse_ModifiedDate_Incl
+		--ON Warehouse.ClientWarehouse (ModifiedDate)
+		--INCLUDE (MasterWarehouseId)
+Create nonclustered index on WarehouseActivity
+	CREATE NONCLUSTERED INDEX IX_WarehouseActivity_ClientWarehouseID
+	ON SearchEngine.WarehouseActivity (ClientWarehouseId)

@@ -1,0 +1,12 @@
+Inbound.GetDocumentsForReprocessing.sql
+1.) Test
+
+Inbound.UpdateDocumentRequest.sql
+1.) Approved
+2.) Removed Tran by DBA request
+
+Inbound.CreateDocumentRequest.sql
+1.) Tested
+
+Inbound.DocumentRequest.sql
+

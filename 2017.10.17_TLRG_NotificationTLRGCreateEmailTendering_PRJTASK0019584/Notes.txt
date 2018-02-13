@@ -1,0 +1,17 @@
+Notifications.TemplateText.sql
+1.) Where's the subject text?
+
+Notifications.Notification.sql
+1.) Approved
+
+Notifications.Delivery.sql
+1.) Approved
+
+Notifications.EntityType.sql
+1.) Approved
+
+Notifications.Template.sql
+1.) Approved
+
+Notifications.ParamList.sql
+1.) Approved

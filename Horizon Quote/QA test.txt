@@ -1,0 +1,26 @@
+QA2
+
+-- 2:15 minutes to back up to scratch (~65 million)
+
+
+-- Script 1
+Script one took 58:50
+Have DBA check messages tab to make sure it's running and monitor transaction log for EchoQuote DB on DB02
+Deleted  63,666,658.00 
+
+-- Script 2
+Script two backed up to scratch.dbo.QuoteStatusHistoryPostv1_20170120
+Back up took 00:05 (1,421,328)
+Deleted 6,851 
+
+-- Script 3
+Backed up to scratch.dbo.Quote_20170120 (426,506)
+Updated 127,921
+
+After correction: updated only 745
+
+-- Created By
+-- Created Date
+-- Purpose
+
+USE EchoQuote

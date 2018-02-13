@@ -1,0 +1,15 @@
+[dbo].[procAccountDocument] 
+1.) What does @retValue -9 or 0 signify?
+2.) Remove the transaction isolation level read uncomitted because the SP contains DML. Use NOLOCK hints instead on the SELECT statements
+3.) Functionality works
+
+2017.04.18_L3_HazMatBOL_1 -- dbo.fn_CIM_GetItemFieldsForBOL -- EchoOptimizer
+1.) Doesn't work for UN or NA with leading character or leading space
+2.) Schema names
+
+2017.04.18_L3_HazMatBOL_5 -- dbo.fn_CIM_GetItemFieldsForBOL -- EchoTrak
+1.) Doesn't work for UN or NA with leading character or leading space
+2.) Execution plan Scans and has a Keylookup.. need to see if that's how it is actually called from application
+
+2017.04.18_L3_HazMatBOL_3  -- Index -- EchoOptimizer
+1.)

@@ -1,0 +1,41 @@
+http://git.echo.com/EchoTruckload/Database.CarrierCommission/tree/c2_db_integration
+
+Why is there an SP to TRUNCATE Stage tables but SQL query to TRUNCATE Reference table?
+
+Inserting into Reference.ZipReferenceData table:
+
+Maximum insert commit size: 2,147,483,647... change to 500,000
+Rows per batch: 500,000
+
+Use SP for TRUNCATE Reference table
+
+
+
+GRANT Execute on three schemas (has Staging, Reference, needs Maintenance)
+Add DATAREADER and DATAWRITER (insert to staging)
+Change TRUNCATE Reference talbe to SP
+
+
+
+Reference.ImportFileType.sql 
+- PK needs to be created with a name.
+- Should it be auto identity?
+
+ [Staging].[MetroFileImport]
+- PK must be named
+- Use IDENTITY (1,1)
+- Default Constraint must be named
+
+[Staging].[MetroFileImportError]
+- PK must be named
+- Use IDENTITY (1,1)
+- Why did you use VARCHAR(20) for Effect_Date instead of Date?
+
+
+
+- Change effective date from datetime to date in table (unless the datetime matters)
+- For the "Stage Metro Data" control flow > Data flow task "Populate Staging Error Table" should both be set to 25,000 (rows per batch is not)
+
+When email, alert DBA to shrink transaction log. DB set to full, may grow up to 15 GB.
+
+Is it only US zip codes? Canadian may be six characters

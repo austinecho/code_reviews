@@ -1,0 +1,18 @@
+2017.09.12_Finance_APNotesEnhancement
+
+[dbo].[APNotes]
+1.) Create FK on LoadGuid to tblLoads
+2.) LoadGuid should be at the very end of the table. Add new columns to the end of table, not the middle
+3.) Name CreatedDate default constraint according to naming conventions
+-- New 8/17
+1.) Approved
+
+[dbo].[InsertAPNotes]
+1.) Approved
+
+[dbo].[GetAPNotes]
+1.) CREATE NONCLUSTERED INDEX IX_APNotes_LoadGuid_PaymentGuid ON dbo.APNotes (LoadGuid, PaymentGuid)
+DROP INDEX DT_Test_APNotes ON dbo.APNotes
+2.) Should any load information be shown from the SELECT statement?
+-- New 8/17
+1.) Approved 

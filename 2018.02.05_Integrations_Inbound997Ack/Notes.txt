@@ -1,0 +1,255 @@
+--=========================
+--Approved
+--=========================
+
+StoredProcedures -- Inbound.InsertEDIAcknowledgements.sql
+1.) How many concurrent sessions will be executing this SP?
+1A.) If more than one:
+	- Remove transaction from parent SP
+	- Put transactions in child SPs
+	- If it fails inserting into one of the child tables, there should be an identifer to roll back the inserts to all tables 	for that attempt
+	- If you try to reprocess the same file, is there a unique identifer for each attempt that can be used to rollback?
+-- 02/09
+1.) Approved
+ -- Developer stressed tested this with Biz Talk and did not notice any concerns, even with FKs. Will need to be moniotored when release.
+
+
+TableType -- Inbound.TT_EDIAcknowledgements.sql
+1.) Approved
+
+Table -- Inbound.X12N997STTransactionSetHeader.sql
+1.) Primary Key should include schema as well as column in the name.
+2.) Foreign key should be named like:  FK_Schema_ChildTableName_Schema_ParentTableName_ParentTableColumnName
+3.) CreatedDate should have a default constraint
+4.) Where is RowCreatedUserID coming from since it is not null? Should it have a default?
+5.) Remove underscores from column names
+-- 02/09
+1.) Approved
+
+Table -- Inbound.X12N997AK9FunctionalGroupResponseTrailer.sql
+1.) Primary Key should include schema as well as column in the name.
+2.) Foreign key should be named like:  FK_Schema_ChildTableName_Schema_ParentTableName_ParentTableColumnName
+3.) CreatedDate should have a default constraint
+4.) Where is RowCreatedUserID coming from since it is not null? Should it have a default?
+5.) Remove underscores from column names
+6.) Remove unncessary line break in middle of table
+-- 02/09
+1.) Approved
+
+Table -- Inbound.X12N997AK5TransactionSetResponseTrailer.sql
+1.) Primary Key should include schema as well as column in the name.
+2.) Foreign key should be named like:  FK_Schema_ChildTableName_Schema_ParentTableName_ParentTableColumnName
+3.) CreatedDate should have a default constraint
+4.) Where is RowCreatedUserID coming from since it is not null? Should it have a default?
+5.) Remove underscores from column names
+-- 02/09
+1.) Approved
+
+Table -- Inbound.X12N997AK3DataSegmentNote.sql
+1.) Primary Key should include schema as well as column in the name.
+2.) Foreign key should be named like:  FK_Schema_ChildTableName_Schema_ParentTableName_ParentTableColumnName
+3.) CreatedDate should have a default constraint
+4.) Where is RowCreatedUserID coming from since it is not null? Should it have a default?
+5.) Remove underscores from column names
+-- 02/09
+1.) Approved
+
+Table -- Inbound.X12N997AK2TransactionSetResponseHeader.sql
+1.) Primary Key should include schema as well as column in the name.
+2.) Foreign key should be named like:  FK_Schema_ChildTableName_Schema_ParentTableName_ParentTableColumnName
+3.) CreatedDate should have a default constraint
+4.) Remove underscores from column names
+5.) Remove unncessary line break in middle of table
+-- 02/09 
+1.) Approved
+
+Table -- Inbound.X12N997AK2Loop.sql
+1.) Primary Key should include schema as well as column in the name.
+2.) Foreign key should be named like:  FK_Schema_ChildTableName_Schema_ParentTableName_ParentTableColumnName
+3.) CreatedDate should have a default constraint
+4.) Where is RowCreatedUserID coming from since it is not null? Should it have a default?
+-- 02/09
+1.) Approved
+
+Table -- Inbound.X12N997AK1FunctionalGroupResponseHeader.sql
+1.) Primary Key should include schema as well as column in the name.
+2.) Foreign key should be named like:  FK_Schema_ChildTableName_Schema_ParentTableName_ParentTableColumnName
+3.) CreatedDate should have a default constraint
+4.) Where is RowCreatedUserID coming from since it is not null? Should it have a default?
+5.) Remove underscores from column names
+-- 02/09
+1.) Approved
+
+Table -- Inbound.X12N997AK3Loop.sql
+1.) Primary Key should include schema as well as column in the name.
+2.) Foreign key should be named like:  FK_Schema_ChildTableName_Schema_ParentTableName_ParentTableColumnName
+3.) CreatedDate should have a default constraint
+4.) Where is RowCreatedUserID coming from since it is not null? Should it have a default?
+-- 02/09
+1.) Approved
+
+Table -- Inbound.EDIAcknowledgements.sql
+1.) Primary Key should include schema.
+2.) CreatedDate should have a default constraint
+3.) Where is RowCreatedUserID coming from since it is not null? Should it have a default?
+-- 02/09
+1.) Approved
+
+StoredProcedures -- Inbound.InsertAK2Loop.sql
+1.) Remove unncessary line breaks
+2.) Declare GetDate() as a variable and pass the variable in the insert statement instead of GetDate()
+-- 02/09
+1.) Approved
+
+StoredProcedures -- Inbound.InsertAK3DataSegmentNote.sql
+1.) Declare GetDate() as a variable and pass the variable in the insert statement instead of GetDate()
+-- 02/09
+1.) Approved
+
+StoredProcedures -- Inbound.InsertAK3Loop.sql
+1.) Remove unncessary line breaks
+2.) Declare GetDate() as a variable and pass the variable in the insert statement instead of GetDate()
+-- 02/09
+1.) Approved3:17 PM 2/9/2018
+
+StoredProcedures -- Inbound.InsertAK4DataElementNote.sql
+1.) Remove unncessary line breaks
+2.) Declare GetDate() as a variable and pass the variable in the insert statement instead of GetDate()
+-- 02/09
+1.) Approved
+
+StoredProcedures -- Inbound.InsertAK5TransactionSetResponseTrailer.sql
+1.) Remove unncessary line breaks
+2.) Declare GetDate() as a variable and pass the variable in the insert statement instead of GetDate()
+-- 02/09
+1.) Approved
+
+StoredProcedures -- Inbound.InsertAK9FunctionalGroupResponseTrailer.sql
+1.) Declare GetDate() as a variable and pass the variable in the insert statement instead of GetDate()
+-- 02/09
+1.) Approved
+
+StoredProcedures -- Inbound.InsertEDIAckMessage.sql
+1.) Declare GetDate() as a variable and pass the variable in the insert statement instead of GetDate()
+-- 02/09
+1.) Approved
+
+StoredProcedures -- Inbound.InsertFunctionalGroupResponseHeader.sql
+1.) Declare GetDate() as a variable and pass the variable in the insert statement instead of GetDate()
+-- 02/09
+1.) Approved
+
+StoredProcedures -- Inbound.InsertSETransactionSetTrailer.sql
+1.) Declare GetDate() as a variable and pass the variable in the insert statement instead of GetDate()
+-- 02/09
+1.) Approved
+
+StoredProcedures -- Inbound.InsertSTTransactionSetHeader.sql
+1.) Declare GetDate() as a variable and pass the variable in the insert statement instead of GetDate()
+-- 02/09
+1.) Approved
+
+StoredProcedures -- Inbound.InsertTransactionSetResponseHeader.sql
+1.) Declare GetDate() as a variable and pass the variable in the insert statement instead of GetDate()
+2.) Remove unncessary line breaks
+-- 02/09
+1.) Approved
+
+Table -- Inbound.X12N997AK4DataElementNote.sql
+1.) Primary Key should include schema as well as column in the name.
+2.) Foreign key should be named like:  FK_Schema_ChildTableName_Schema_ParentTableName_ParentTableColumnName
+3.) CreatedDate should have a default constraint
+4.) Where is RowCreatedUserID coming from since it is not null? Should it have a default?
+5.) Remove underscores from column names
+6.) Remove unncessary line break in middle of table
+6.) Change [AK401_PositioninSegment] to [AK401PositionInSegment] (capital I in "in" to match rest of camel casing)
+-- 02/09
+1.) Approved
+
+TableType -- Inbound.TT_AK1FunctionalGroupResponseHeader.sql
+1.) Remove underscores from column names
+2.) Data Type between TT and physical table should match
+-- 02/09
+1.) Approved
+
+TableType -- Inbound.TT_AK2TransactionSetResponseHeader.sql
+1.) Remove underscores from column names
+-- 02/09
+1.) Approved
+
+TableType -- Inbound.TT_AK3DataSegmentNote.sql
+1.) Remove underscores from column names
+2.) Data Type between TT and physical table should match
+3.) AK302_SegmentPositioninTransactionSet change to AK302SegmentPositionInTransactionSet
+-- 02/09
+1.) Approved
+
+TableType -- Inbound.TT_AK1FunctionalGroupResponseHeader.sql
+1.) Remove underscores from column names
+2.) Data Type between TT and physical table should match
+-- 02/09
+1.) Approved9:53 AM 2/12/2018
+
+TableType -- Inbound.TT_AK2TransactionSetResponseHeader.sql
+1.) Remove underscores from column names
+-- 02/09
+1.) Approved
+
+TableType -- Inbound.TT_AK3DataSegmentNote.sql
+1.) Remove underscores from column names
+2.) Data Type between TT and physical table should match
+3.) AK302_SegmentPositioninTransactionSet change to AK302SegmentPositionInTransactionSet
+-- 02/09
+1.) Approved
+
+TableType -- Inbound.TT_AK5TransactionSetResponseTrailer.sql
+1.) Remove underscores from column names
+-- 02/09
+1.) Approved
+
+TableType -- Inbound.TT_AK9FunctionalGroupResponseTrailer.sql
+1.) Remove underscores from column names
+-- 02/09
+1.) Approved
+
+TableType -- Inbound.TT_STTransactionSetHeader.sql
+1.) Remove underscores from column names
+-- 02/09
+1.) Approved
+
+Table -- Inbound.X12N997SETransactionSetTrailer.sql
+1.) Primary Key should include schema as well as column in the name.
+2.) Foreign key should be named like:  FK_Schema_ChildTableName_Schema_ParentTableName_ParentTableColumnName
+3.) CreatedDate should have a default constraint and be NOT NULL
+4.) Remove underscores from column names
+-- 02/09
+1.) Approved
+
+Table -- Inbound.X12N997SETransactionSetTrailer.sql
+1.) Primary Key should include schema as well as column in the name.
+2.) Foreign key should be named like:  FK_Schema_ChildTableName_Schema_ParentTableName_ParentTableColumnName
+3.) CreatedDate should have a default constraint and be NOT NULL
+4.) Remove underscores from column names
+-- 02/09
+1.) Approved
+
+
+
+TableType -- Inbound.TT_AK4DataElementNote.sql
+1.) Remove underscores from column names
+2.) Data Type between TT and physical table should match
+3.) Make PositionInSegment CamelCase
+-- 02/09
+1.) Data Type between TT and physical table should match
+-- 02/12
+1.) Approved
+
+
+TableType -- Inbound.TT_SETransactionSetTrailer.sql
+1.) Remove underscores from column names
+2.) Data Type between TT and physical table should match
+-- 02/09
+1.) Data Type between TT and physical table should match
+-- 02/12
+1.) Approved
+

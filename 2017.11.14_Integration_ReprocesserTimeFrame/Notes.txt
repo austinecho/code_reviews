@@ -1,0 +1,17 @@
+[TLIn].[GetInboundShipmentForReprocessing]
+1.) Add Index:
+CREATE NONCLUSTERED INDEX IX_TLin_Shipment_ValidEnd_RowDeleted_Response_RowCreated ON TLIn.Shipment (ValidEnd, RowDeleted, TransactionID, ResponseStatus, ResponseCode, ResponseMessage, RowCreated)
+2.) Make GETDATE() a variable and use that in the WHERE clause
+
+[LTLIn].[GetInboundShipmentForReprocessing]
+1.) Add Index:
+CREATE NONCLUSTERED INDEX IX_LTLin_Shipment_ValidEnd_RowDeleted_Response_RowCreated ON LTLIn.Shipment (ValidEnd, RowDeleted, TransactionID, ResponseStatus, ResponseCode, ResponseMessage, RowCreated)
+2.) Make GETDATE() a variable and use that in the WHERE clause
+-- 11/08
+1.) Approved
+
+[LTLin].[Shipment]
+1.) IX_TLin_Shipment_ValidEnd_RowDeleted_Response_RowCreated_TransactionID
+
+[TLin].[Shipment]
+1.) IX_LTLin_Shipment_ValidEnd_RowDeleted_Response_RowCreated_TransactionID

@@ -1,0 +1,71 @@
+11. Wiki article about naming PKs, FKs
+FK to ShipmentID for all tables... how transactional will this be 
+How is this being populated, PoNumber, ProNumber, etc
+ShipmentMode should reference another table, no text values
+Reference data for equip type, accessorial, 
+
+Will there be more reference columns such as BOl, Order, PO, Pro? Seperate table for reference type and value
+2 tables reference and one with just shipment id and actual number
+
+What if new notes are being added? Should there be a new table? Overwrite notes? New record for each note?
+
+Does shipmentId mean something along the lines of loadId? Will there only be one shipmentID in Client.Shipment?
+
+[Client].[Shipment]
+1.) What are some examples of EquipmentTypes, EquipmentAccessorials, EquipmentTarps? Do they need to be VARCHAR(1000)?
+2.) Is VARCHAR(40) enough for EquipmentNotes?
+3.) Change PalletStackable to a BIT since it is only true/false.
+4.) Does UnitOfWeight need to be VARCHAR(50)?
+5.) Does CarrierSCAC need to be VARHCAR(50)?
+6.) Does there need to be a modified by / modified date coulmns?
+7.) What does CreatedBy map to? What does 1 signify? Application or user or other?
+8.) Since this is generic now, is it possible it will be used for a different mode that would require more than four characters?
+9.) Will CubicSize or Mix/MaxTemp ever be a decimal? 
+10.) Why is BIGINT being used instead of INT? (For the other tables as well)
+11.) All columns that use list sepearters viaoltes 1nf and we need seperate that, so create a new table that references shipment ID. [AckNotification] is an example of a column that violates 1nf
+
+
+[Client].[ShipmentItem]
+1.) What are some examples of ItemID?
+2.) Should weight be INT or should it be float / decimal? Are you rounding the weight?
+3.) Change HazardousMaterial to a BIT since it is only true/false.
+4.) I don't see StopPickNumber/StopDropNumber in the table in coord-db.dev.echogl.net\db01 but I see it in SVN.
+5.) There can be the same shipmentID multiple times in this table because shipments can have multiple items, correct?
+6.) What is ValidStart / ValidEnd?
+7.) What does CreatedBy map to? What does 1 signify? Application or user or other?
+
+[Client].[ShipmentReference]
+1.) What is the difference between Name and Value? They are both 'TEST' in coord-db.dev.echogl.net\db01 currently.
+2.) What is ValidStart / ValidEnd? 
+3.) What does CreatedBy map to? What does 1 signify? Application or user or other?
+4.) Can this table have the same shipmentID multiple times?
+5.) Is this table for storing reference numbers?
+
+[Client].[ShipmentStop]
+1.) Can this table have the same shipment mulitple times?
+2.) Change AppointmentDate to DATE instead of VARCHAR?
+3.) Change AppointmentStart and AppointmentEnd to TIME instead of VARCHAR?
+4.) Can city reference a pre existing CityID? Where is the city name coming from? User input or a drop down? Same with state?
+5.) Does PostalCode need to be VARCHAR(50)? Perhaps just VARCHAR(10)?
+6.) I don't see StopType or StopNumber in in the enviornment but see it in SVN.
+7.) What does CreatedBy map to? What does 1 signify? Application or user or other?
+8.) LocationType should be a seperate reference table
+9.) Why isn't reference data being used for location information? Where is this data coming from?
+
+[Archive].[Shipment]
+1.) Same questions as [Client].[Shipment]
+
+[Archive].[ShipmentItem]
+1.) Same questions as [Client].[ShipmentItem]
+
+[Archive].[ShipmentReference]
+1.) Same questions as [Client].[ShipmentReference]
+
+[Archive].[ShipmentStop]
+1.) Same questions as [Client].[ShipmentStop]
+
+
+[dbo].[GetAPIUser]
+BEGIN, END, NOCOUNT ON, TRANSACTION IS LVEVEL ON
+NO RETURN 0
+Comments, header

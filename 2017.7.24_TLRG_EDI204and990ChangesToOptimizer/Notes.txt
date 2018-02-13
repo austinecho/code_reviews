@@ -1,0 +1,60 @@
+Notes
+
+[GetCarrierGuid]
+1.) @LoadID needs to be a scalar parameter, not a scalar variable. This way it will get initialized so it can be passed to the SP.
+2.) Please join tblCarrierLoads to tblLoads using LoadGUID instead of LoadID (Important for preformance!)
+3.) Add SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+4.) Correct typo in the notes for "Carrier"
+5.) Make name of SP more meaningful, such as GetCarrierGuidForLoad
+6.) We prefer the casing for reserved words to be consistant (Ex. SELECT, INNER, ON, WHERE, FROM, etc should be captilaized)
+7.) There is no need for UPPER in the WHERE clause
+-- 8/15
+1.) Removed, approved
+
+[procgetLoadTotalWeightByLoadGUID] -- Approved
+1.) Rename to GetLoadTotalWeightByLoadGUID
+2.) Add SET NOCOUNT ON and SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED after BEGIN
+3.) We prefer the casing for reserved words to be consistant (Ex. SUM, SELECT, INNER, ON, WHERE, FROM, CREATE, etc should be captilaized)
+4.) Remove GO from the very top
+5.) Please add schema for tblLoadItems
+
+[procGetTarpSizeCodeByLoadGUID] -- Approved
+1.) Remove "proc" from name
+2.) Add SET NOCOUNT ON and SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED after BEGIN
+3.) We prefer the casing for reserved words to be consistant (Ex. AND, SELECT, INNER, ON, WHERE, FROM, CREATE, etc should be captilaized)
+4.) Remove "EchoOptimizer." (Since we are already in the DB EchoOptimizer, you don't need to specify it)
+5.) Remove GO from the very top
+6.) Add the alias to LoadGuid in the WHERE clause
+7.) Specify full JOIN name (JOIN should be INNER JOIN)
+
+[procSaveCarrierResponseEDI990byLoadID] -- Removed
+1.) Does not exist in Dev environement. Has it been removed from project?
+
+[procGetCarrierListForThisLoad] -- Approved
+1.) Add modified by, modified date, and modified reason comments at top
+2.) Add schemas to tables
+3.) Question: Does the IsTLAutoTenderEligible need to be added to the @inSearch Y and T as well or just N?
+
+[Tender.LoadTenderResponse] -- Approved 8/15
+1.) Should ReservationActionCode and StatusReasonCode ever be NULL? To my understanding, a record will only be in this table if they respond and therefore should have a ReservationACtionCode and a StatusReasonCode.
+2.) What is CreatedBy? A user or application or service? What table does it reference?
+
+[Tender].[LoadTender] -- Approved 8/15
+1.) If ModifiedDate and ModifiedBy is NOT NULL, it will need a default constraint because it will not have a value when a record is created in the table. 
+************ 2.) isDeclined should be after isTimedOut
+UniqueIndex
+
+•	LoadId/LoadGuid
+•	Carrier Guid
+•	TenderExpireTime
+
+
+
+[dbo].[get204ifActive] -- Approved 8/15
+1.) Add SET NOCOUNT ON and SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED after BEGIN
+2.) We prefer the casing for reserved words to be consistant (Ex. AND, SELECT, INNER, ON, WHERE, FROM, CREATE, etc should be 
+3.) CREATE NONCLUSTERED INDEX IX_LoadTenderResponse_LoadTenderID_LoadTenderResponseID ON Tender.LoadTenderResponse (LoadTenderId, LoadTenderResponseId)
+4.) CREATE NONCLUSTERED INDEX IX_LoadTender_IsTimedOut_IsDeclined_LoadGuid_Incl ON Tender.LoadTender (IsTimedOut, IsDeclined, LoadGuid) INCLUDE (LoadTenderId)
+5.) Rewrite SP as suggested 
+6.) Put in Tender schema
+7.) Rename to GetActive204

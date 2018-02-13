@@ -1,0 +1,13 @@
+2018.03.01_TLRG_DataaseUpdate
+
+1.) CREATE NONCLUSTERED INDEX IX_RateSchedule_Linehaul_AggregateRateScheduleId_OriginZip_Destination3DigitZip_LaneType ON RateSchedule.Linehaul (AggregateRateScheduleId, OriginZip, Destination3DigitZip, LaneType)
+
+2.) CREATE NONCLUSTERED INDEX IX_RateSchedule_Linehaul_AggregateRateScheduleId_Origin3DigitZip_DestinationZip_LaneType ON RateSchedule.Linehaul (AggregateRateScheduleId, Origin3DigitZip, DestinationZip, LaneType)
+
+3.) CREATE NONCLUSTERED INDEX IX_RateSchedule_Linehaul_AggregateRateScheduleId_Origin3DigitZip_Destination3DigitZip_LaneType ON RateSchedule.Linehaul (AggregateRateScheduleId, Origin3DigitZip, Destination3DigitZip, LaneType)
+
+4.) SET NOCOUNT ON
+
+5.) Add BEGIN / END
+
+6.) Instead of COUNT(*) do COUNT(1)

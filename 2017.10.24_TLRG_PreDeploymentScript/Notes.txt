@@ -1,0 +1,5 @@
+2017.10.17_TLRG_Release.sql
+
+1.) Add BEGIN TRANSACTION / COMMIT TRANSACTION inside the TRY block
+2.) Remove GO after the procedure drop
+3.) There's really no need for the TRY / CATCH / TRANSACTION / ERROR HANDELING because it is only one drop statement.

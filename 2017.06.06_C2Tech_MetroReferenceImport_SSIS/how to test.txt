@@ -1,0 +1,6 @@
+
+Create CarrierCommission shell on DT4
+Remove FTP and have it pick up local
+Test from grabbing file locally to importing into staging table
+See how long the default values take
+Play around with buffersize and rows

@@ -1,0 +1,19 @@
+CarrierLane.LaneStop.sql
+1.) Approved
+
+RateSchedule.LinehaulStop.sql
+1.) Approved
+
+SchedulerState.sql
+1.) Is ExperationDateTime suppose to be Expiration?
+
+Tendering.TenderAction.sql
+1.) Primary Key needs to be named constraint, such as other tables
+
+\XPlatform.Database\Scripts\Post-Deployment\Security\Users\DB01-XPlatform-E.sql
+\XPlatform.Database\Scripts\Post-Deployment\Security\Users\DB01-XPlatform-R.sql
+\XPlatform.Database\Scripts\Post-Deployment\Security\Users\DB01-XPlatform-W.sql
+RateSchedule.FuelSurcharge.sql
+RateSchedule.Rate.sql
+RateSchedule.RateDetail.sql
+CarrierLane.CarrierLane.sql

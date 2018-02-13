@@ -1,0 +1,11 @@
+dbo.TLRGGetAdditionalLoadItemsFromOptimizerByLoadGUID
+1.) Add alias to columns (ti, tc, hu)
+2.) SET NOCOUNT ON 
+3.) SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+4.) Rewrite to use CTE to grab needed columns from tblLoadItems using LoadItemID
+
+dbo.TLRGGetLoadFromOptimizerByLoadGUID
+1.) Approved
+
+dbo.TLRGGetEquipmentForOptimizerByLoadGUID
+1.) Approved

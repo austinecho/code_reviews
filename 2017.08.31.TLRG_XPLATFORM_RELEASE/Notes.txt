@@ -1,0 +1,26 @@
+DB01-Xplatform-E.sql
+1.) Approved
+
+DB01-Xplatform-R.sql
+1.) Approved
+
+DB01-Xplatform-W.sql
+1.) Approved
+
+Script.PostDeployment.sql -- Server
+1.) Does it need to be added at end of section?
+
+DB01-Xplatform-E.sql
+1.) Approved
+
+DB01-Xplatform-R.sql
+1.) Approved
+
+DB01-Xplatform-W.sql
+1.) Approved
+
+db-executor.sql
+1.) Approved (file structure is different, is this okay?)
+
+Script.PostDeployment.sql -- DB
+1.) Approved 

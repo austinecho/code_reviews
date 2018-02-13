@@ -1,0 +1,10 @@
+2017.07.27_TLI_HotfixCarrierContactsFirstName
+1.) Remove creating the linked server, it already exist in prod / QA / dev
+2.) Specify the full name of your JOINs (In this case INNER)
+3.) c.Firstname does not exist. I believe it should be cc.Firstname
+
+
+839 records
+
+639 records match in EchoOptimizer.Carrier.Contact 
+Some first names only equal " *"

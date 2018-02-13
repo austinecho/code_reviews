@@ -1,0 +1,99 @@
+Carrier.sql (Schema)
+1.) Please add AUTHORIZATION DBO
+(Example svn://svn.echo.com:4345/Database.EchoOptimizer/Trunk/EchoOptimizer/Security/Schemas/Commission.sql)
+-- 10/13
+1.) Approved
+
+CarrierLane.sql (Schema)
+1.) Please add AUTHORIZATION DBO
+-- 10/13
+1.) Approved
+
+Routing.sql (Schema)
+1.) Please add AUTHORIZATION DBO
+-- 10/13
+1.) Approved
+
+Customer.sql (Schema)
+1.) Please add AUTHORIZATION DBO
+-- 10/13
+1.) Approved
+
+Carrier.OptimizerUpdateDomainState.sql
+1.) Do CarrierID, Username, and CurrentState need to be nvarchar?
+2.) Primary Key must be named. Should be PK_Carrier_OptimizerUpdateDomainState_CorrelationId
+-- 10/13
+1.) Approved
+
+Customer.OptimizerUpdateDomainState.sql
+1.) Do CustomerName, CustomerId, AccountStatus, Username, and CurrentState need to be nvarchar?
+2.) What is "AccountStatus"? Active / Inactive? Don't see data in DB
+3.) Primary Key must be named. Should be PK_Customer_OptimizerUpdateDomainState_CorrelationId
+-- 10/13
+1.) Approved
+
+Routing.LoadStopShipment.sql
+1.) PK has wrong naming convention. Should be PK_Routing_LoadStopShipment_Id
+2.) What is HazMat? Don't see anything in DB for it
+-- 10/11
+1.) Should be isHazMat since it is a BIT
+-- 10/13
+1.) Approved
+
+
+--================================================================================================================
+-- Approved 
+--================================================================================================================
+1:31 PM 10/13/2017
+Routing.Load.sql
+1.) PK has wrong naming convention. Should be PK_Routing_Load_Id
+2.) Does CustomerId need to be varchar(125)? Varchar(10) in Optimizer for CustomerId
+3.) Should be IsPalletStackAble
+-- 10/11
+1.) Approved
+
+Routing.LoadEquipment.sql
+1.) PK has wrong naming convention. Should be PK_Routing_LoadEquipment_Id
+-- 10/11
+1.) Approved
+
+Routing.LoadSpecialService.sql
+1.) PK has wrong naming convention. Should be PK_Routing_LoadSpecialService_Id
+-- 10/11
+1.) Approved
+
+Routing.LoadStop.sql
+1.) PK has wrong naming convention. Should be PK_Routing_LoadStop_Id
+2.) Does OriginGNumber need to be varchar(50)? Varchar(12) in Optimizer for GNumber
+-- 10/11
+1.) Approved
+
+Routing.Route.sql
+1.) PK has wrong naming convention. Should be PK_Routing_Route_Id
+2.) Does CustomerId need to be varchar(125)? Varchar(10) in Optimizer for CustomerId
+3.) Does CarrierId need to be varchar(125)? Varchar(12) in Optimizer for CarrierID.
+4.) Should be IsPalletStackAble
+-- 10/11
+1.) Approved
+
+Routing.RouteItemizedPrice.sql
+1.) PK has wrong naming convention. Should be PK_Routing_RouteItemizedPrice_Id
+2.) Should percentage be data type "money"?
+-- 10/11
+1.) Approved
+
+Routing.RouteSpecialService.sql
+1.) PK has wrong naming convention. Should be PK_Routing_RouteSpecialService_Id
+-- 10/11
+1.) Approved
+
+Routing.RouteTenderAction.sql
+1.) PK has wrong naming convention. Should be PK_Routing_RouteTenderAction_Id
+-- 10/11
+1.) Approved
+
+Routing.Routing.sql
+1.) PK has wrong naming convention. Should be PK_Routing_Routing_Id
+2.) Does CurrentCarrierId need to be varchar(125)? Varchar(12) in Optimizer for CarrierID.
+-- 10/11
+1.) Approved

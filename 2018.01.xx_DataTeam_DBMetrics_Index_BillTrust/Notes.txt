@@ -1,0 +1,83 @@
+
+
+Log.DatabaseReportSubscriptionExecution.sql
+1.) Please add schema and column to PK. Make sure table name in PK is singular
+2.) CreatedDate shouldn't be NULL. Please add default named constraint for GETDATE()
+
+
+
+
+Process.ProcessRequestServer.sql
+1.) Approved
+
+Log.TT_DatabaseReportExecution.sql
+1.) Approved
+
+Log.TT_DatabaseReportSubscription.sql
+1.) Approved
+
+Process.DatabaseReportSubscriptionExecutionFailure.sql
+1.) Approved
+
+Log.CreateDatabaseReportExecution.sql
+1.) Do you need to pass isDebug param? 
+-- 1/31
+1.) Approved
+
+Log.CreateDatabaseReportSubscription.sql
+1.) Do you need to pass isDebug param? 
+2.) BEGIN TRY should be above BEGIN TRANSACTION
+-- 1/31
+1.) Approved
+
+Process.DatabaseReportSubscriptionFailure.sql
+1.) Approved
+-- Be sure you have a linked server created on BODB1V (can create Data Consultation for DBA to make it)
+
+Process.IndexFragmentation.sql
+1.) Might be a good idea to make the LinkedServerName, ServerName, and DatabaseName in your temp table larger
+2.) Do you want to put the BEGIN TRY right about BEGIN TRANSACTION?
+3.) Check [Log].[StatusResponse].[StatusRequestID] = 381, it shows iSuccess and isError as 0.
+-- 1/31
+1.) Approved
+
+Log.TT_IndexFragmentation.sql
+1.) Make sure DataType size matches Log.IndexFragmentation table
+-- 1/31
+1.) Approved
+
+-- Tables
+Log.DatabaseReportExecution.sql
+1.) Please add schema to PK
+2.) CreatedDate shouldn't be NULL. Please add default named constraint for GETDATE()
+-- 1/31
+1.) Approved
+
+Log.IndexFragmentation.sql
+1.) [DatabaseName] should be 128 varchar because that's the SQL Server maxiumum size
+2.) [TableName] should be 128 varchar because that's the SQL Server maxiumum size
+3.) [IndexName] should be 128 varchar because that's the SQL Server maxiumum size
+-- 1/31
+1.) Approved
+
+Reference.DatabaseReportExecution.sql
+1.) Is VARCHAR(100) big enough for description?
+2.) Add schema to PK
+3.) CreatedDate shouldn't be NULL. Please add named default constraint for GETDATE()
+-- 1/31
+1.) Approved
+
+Reference.DatabaseReportSubscription.sql
+1.) Is VARCHAR(100) big enough for description?
+2.) CreatedDate shouldn't be NULL. Please add named default constraint for GETDATE()
+3.) PK is missing schema
+-- 1/31
+1.) Approved
+
+Reference.IndexFragmentationDatabaseList.sql
+1.) LinkedServerName should be VARCHAR(128) (unless the maximum length is actually 50)
+2.) CreatedDate should be added and not be NULL. Please add named default constraint for GETDATE()
+3.) [DatabaseName] should be 128 varchar because that's the SQL Server maxiumum size
+4.) PK is missing schema
+-- 1/31
+1.) Approved

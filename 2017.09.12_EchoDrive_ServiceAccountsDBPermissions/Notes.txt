@@ -1,0 +1,19 @@
+ednotification -- Server Login
+1.) Approved
+
+ednotification -- DB User -- EO
+1.) You don't need DataReader and GRANT SELECT
+
+ednotification -- DB User  -- CP
+1.) Grant Connect not needed
+
+edescalati -- DB User -- EO
+1.) Approved
+	- Execute CarrierPortal SPs	
+
+edescalati -- DB User -- EOI
+1.) Approved
+
+edapp -- DB User -- EO
+1.) Approved
+	- Execute CarrierPortal SPs

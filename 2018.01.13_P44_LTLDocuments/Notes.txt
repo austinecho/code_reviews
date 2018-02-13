@@ -1,0 +1,59 @@
+DocumentRequest.LTLCarrier
+1.) Rename PK and FK to include schema
+2.) Should there be a unique constraint on LoadCorrelationId and CarrierGuid?
+3.) Is there a reason PK isn't clustered?
+-- 12/15
+1.) FK needs to include parent schema as well, FK_DocumentRequest_LTLCarrier_DocumentRequest_LTLLoad_CorrelationId
+-- 12/18
+1.) Approved
+
+DocumentRequest.LTLPro
+1.) Rename PK and FK to include schema
+2.) Is there a reason PK isn't clustered?
+-- 12/15
+1.) FK needs to include parent schema as well
+--12/18
+1.) Approved
+
+DocumentRequest.LTLLoadDestination
+1.) Rename PK and FK to include schema
+2.) Is City a hardcoded city value or does it reference an ID?
+3.) Is state the state code? Such as IL.
+4.) Is there a reason PK isn't clustered?
+-- 12/15
+1.) FK needs to include parent schema as well
+-- 12/18
+1.) Approved 
+
+--===============================================================================
+-- Approved
+--===============================================================================
+
+DocumentRequest.LTLLoad
+1.) If the schema isn't dbo, add schema to index name. ([PK_DocumentRequest_LTLLoad_CorrelationId]
+2.) Is there a reason PK isn't clustered?
+-- 12/15
+1.) Approved
+
+[dbo].[GetUploadedDocumentsCountByLoadId]
+1.) Add SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+2.) Add schema to table
+3.) Apply casing to SELECT, FROM, WHERE
+-- 12/15
+1.) Approved
+
+dbo.Version
+1.) Approved
+
+DocumentRequest
+1.) Approved
+
+db_executor
+1.) Approved
+
+
+DocumentManagementReport.Source.sql
+1.) Approved
+
+DocumentManagementReport.DiscoverySource.sql
+1.) Approved

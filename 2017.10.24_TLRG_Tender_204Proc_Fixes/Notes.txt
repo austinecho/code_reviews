@@ -1,0 +1,7 @@
+dbo.GetLoadInfoFor204Message.sql
+1.) Approved
+
+Tender.Get204PlatformCarrier.sql
+1.) Create @LoadTenderId variable and find the LoadTenderId based on @LoadGuid
+2.) Use the @LoadTenderId to find the CarrierGuid in the CTE instead of using the @LoadGuid
+3.) Remove unneeded space between SELECT and FROM of main query

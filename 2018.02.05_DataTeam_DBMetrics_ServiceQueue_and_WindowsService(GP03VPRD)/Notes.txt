@@ -1,0 +1,25 @@
+Process.CheckLinkedServerStatus.sql
+1.) Approved
+
+Process.GetServiceQueueStatus.sql
+1.) Should line 94 = 1?
+
+Process.GetWindowsServiceStatus.sql
+1.) Does this metric need a log or just a state is fine?
+
+ProcessRequestServer.sql
+1.) Why did you comment out the begin / commit transactions?
+
+Log.ServiceQueueStatus.sql
+1.) The tables need to have ServerID, EnvironmentID, NodeID, and StatusRequestID (from main SP)
+
+Log.WindowsServiceStatus.sql
+1.) The tables need to have ServerID, EnvironmentID, NodeID, and StatusRequestID (from main SP)
+
+State.ServiceQueueStatus.sql
+1.) The tables need to have ServerID, EnvironmentID, NodeID, and StatusRequestID (from main SP)
+
+State.WindowsServiceStatus.sql
+1.) The tables need to have ServerID, EnvironmentID, NodeID, and StatusRequestID (from main SP)
+
+ScriptDataPopulation.sql

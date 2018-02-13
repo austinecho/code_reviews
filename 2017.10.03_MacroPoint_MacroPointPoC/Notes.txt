@@ -1,0 +1,12 @@
+2017.10.03_MacroPoint_MacroPointPoC
+
+[dbo].[GetCurrentLoadStatusByLoadGuid]
+1.) Should this be in Macropoint schema?
+2.) Update description (currently says it returns the loadID and owner email, it only returns the status)
+
+[dbo].[GetMacroPointUserGuid] - Function
+1.) Add to Macropoint schema 
+2.) Add schema to tblUsers (dbo.tblUsers)
+
+[Macropoint].[GetMacroPointSubTypeId]
+1.) Change example execution plan to new parameters 

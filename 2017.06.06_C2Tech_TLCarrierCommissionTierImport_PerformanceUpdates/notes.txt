@@ -1,0 +1,58 @@
+Should the error outputs be marked as "Failure"?
+
+-- Does History.FileImport ever get truncated? Job?
+
+In the Data Flow task "Populate Staging Error Table", the rows per batch should be set to the same as the maximum insert commit size (25,000)
+
+Log file grew to 0.6 GB during SP that executes normalize data.
+
+C2ImportSQLAgent
+
+-- 1ST execution LDF = 939,264 KB
+-- 2ND execution LDF = 2,374,208 KB
+-- 3RD execution LDF = 3,181,824 KB
+-- 4TH execution LDF = 3,181,824 KB -- did not grow
+-- 5TH execution LDF = 3,340,928 KB
+-- 6TH execution LDF = 3,340,928 KB -- did not grow
+-- 7TH execution LDF = 3,507,968 KB
+-- 8TH execution LDF = 3,867,584 KB
+-- 9TH execution LDF = 3,867,584 KB -- did not grow
+-- 10TH execution LDF = 4,963,256 KB
+-- 10TH execution LDF = 4,963,256 KB -- did not grow
+MDF 10,851,008
+
+Take 2
+-- 1ST execution LDF = 851,904 KB
+-- 2nd 2,374,208 KB
+-- 3rd 3,340,928 KB
+
+50,000
+1st 772,672 KB
+2ND 1,771,520
+3 ^
+4 ^
+5 ^ 2,261,120
+
+
+25,000
+700,800
+1,860,096
+
+
+--======================================================================
+
+Delete
+Start 33,212,256
+
+Delete
+Rows deleted: 1,000,008
+Time: 2:22 minutes
+Log: 1,953,152 kb
+
+Delete
+Rows deleted: 1,000,000
+Time: 2:20 minutes
+Log: 1,953,152 kb
+
+Temp > Truncate
+

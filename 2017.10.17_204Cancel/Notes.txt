@@ -1,0 +1,62 @@
+--========================================================================================================
+-- Approved
+--========================================================================================================
+Tender.LoadTender
+1.) Approved
+
+Tender.InsertLoadTender
+1.) Approved
+
+Tender.Status
+1.) Primary Key must be named
+2.) Should StatusID be IDENTITY column?
+-- 10/-6
+1.) Approved
+
+Tender.Status (Script)
+1.) Make sure it is added to svn://svn.echo.com:4345/Database.EchoOptimizer/Branch/Project/TLRG_204Cancel/EchoOptimizer/Scripts/Post-Deployment/Script.PostDeployment.sql
+-- 10/06
+1.) Approved
+
+Tender.GetActive204
+1.) Add index: 
+CREATE NONCLUSTERED INDEX IX_LoadTender_Status_LoadGuid ON Tender.LoadTender (Status,LoadGuid)
+-- 10/06
+1.) Approved
+
+dbo.GetLoadInfoFor204Message
+1.) CREATE NONCLUSTERED INDEX IX_LoadTender_LoadGuid_INCL ON Tender.LoadTender (LoadGuid) INCLUDE (LoadTenderId)
+2.) Rewrite SP to use CTEs to grab what is needed from tblLoadItems, tblCarrierLoads, LoadTender, and LoadTenderResponse
+-- 10/06
+1.) Approved
+
+dbo.GetSpecialServicesByLoadIDPlatform
+1.) Change schema in sample execution plan -- 10/05
+-- 10/06
+1.) Approved
+
+Tender.InsertUpdateLoadTenderResponse
+1.) Change sample execution schema and @ModifiedBy parameter
+2.) Change ModifedDate = GETDATE() to variable
+3.) CREATE NONCLUSTERED INDEX IX_LoadTender_LoadID_Status_INCL ON Tender.LoadTender (LoadId, Status) INCLUDE (LoadTenderId, TenderExpireTime)
+-- 10/06
+1.) Approved
+
+Tender.CancelLoadTender
+1.) Make ModifiedDate variable
+2.) Change sample execution schema
+3.) Change ModifiedDate = GETDATE() to a variable 
+-- 10/06
+1.) Approved
+
+Tender.GetActiveCarrier
+1.) Change schema in sample execution
+2.) CREATE NONCLUSTERED INDEX IX_LoadTender_LoadID_CreatedDate_CarrierGuid ON Tender.LoadTender (LoadId, CreatedDate, CarrierGuid)
+3.) Add header comments (created by, created date, description)
+-- 10/06
+1.) Approved
+
+Tender.UpdateExpiredLoadTenders
+1.) CREATE NONCLUSTERED INDEX DT_Test ON Tender.LoadTender (Status, TenderExpireTime) INCLUDE (LoadTenderId, LoadId, LoadGuid, CarrierGuid) -- 10/05
+-- 10/06
+1.) Approved

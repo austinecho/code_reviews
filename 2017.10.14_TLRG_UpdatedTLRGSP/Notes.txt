@@ -1,0 +1,22 @@
+[dbo].[TLRG_GetLoadStopListForThisLoad]
+1.) SET NOCOUNT ON 
+2.) Add correct sample execution for SP in the SP header comments
+3.) Create table variable to find the LoadStopIDs based on LoadGuid, use that as FROM and then join tblLoadStops using LoadStopID (Add to LD and LW section)
+4.) Create a variable that finds the LoadID based on LoadGuid and join tblLoads by loadID instead of LoadGuid (Add to LD section)
+5.) Remove commented out join to table if not needed
+-- 10/15
+1.) Remove underscore from SP names
+2.) Add other parameters to sample execution 
+
+[dbo].[TLRGGetEquipmentForOptimizerByLoadGUID]
+1.) Qualify object names
+-- 10/15
+1.) Add table alias to column names
+-- 10/15
+1.) Approved
+
+[dbo].[TLRGGetLoadFromOptimizerByLoadGUID]
+1.) Qualify object name (PalletStackable should be l.PalletStackable)
+(Scan on dbo.CarrierModes but only reference table with 8 records)
+-- 10/15 
+1.) Approved

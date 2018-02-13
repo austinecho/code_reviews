@@ -1,0 +1,26 @@
+* Fuel.GetSurchargeIndexByFuelCostPerGallon *
+1.) Remove DB from FROM section
+2.) Include sample execution in SP comments 
+3.) Change description comments to correct description
+-- 9/19
+1.) Comments should be changed FuelCostPerGallon
+-- 9/20
+1.) Not returning data
+
+* Fuel.GetSurchargebyNationalAverage *
+1.) Remove DB name from FROM section of SELECT statements
+2.) Is the description correct?
+--9/20
+1.) Approved
+
+* Fuel.GetSurchargeIndexByPerMileFuelSurcharge *
+1.) Remove DB name from FROM section
+2.) Include sample execution in SP comments 
+--9/20
+1.) Approved
+
+* Fuel.GetSurchargeIndexByPercentOfLineHaulFuelSurcharge *
+1.) Remove DB from FROM section
+2.) Include sample execution in SP comments 
+--9/20
+1.) Approved

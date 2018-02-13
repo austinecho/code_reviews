@@ -1,0 +1,21 @@
+[SearchEngine].[LoadBoardOperations]
+
+1.) Execution plan blew up, before modifications it was utilizing seeks now it is mainly table scans. Need to rewrite the INSERT into #LoadChangeDetails SELECT
+(Utilize CTEs / TempTables to only grab the PKs or clustered index column and then join that back select the other neccessary data.)
+
+[SearchEngine].[GetLoadSummaryUpdates]
+
+1.) Move SET NOCOUNT ON below BEGIN
+2.) Add SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED 
+
+[SearchEngine].[InitialLoadSeeding] 
+
+1.) Does this only run one time?
+
+[SearchEngine].[LoadActivity]
+
+1.) Why is this a VARCHAR instead of a decimal / numeric such as in tblMoney?
+
+SearchEngine.ActivityLog_PopulateTotalCostField.sql
+
+1.) Is this suppose to update only the NULL values or all values that match to tblMoney with a loadguid?

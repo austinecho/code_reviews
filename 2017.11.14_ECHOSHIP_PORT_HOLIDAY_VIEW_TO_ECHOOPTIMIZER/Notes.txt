@@ -1,0 +1,11 @@
+ShipperPortal.vwHoliday_DropView.sql
+1.) Approved 
+(View is also removed from DB project)
+
+ShipperPortal.vwHolidays.sql
+1.) Add index: CREATE NONCLUSTERED INDEX IX_Calendar_IsHoliday_INCL ON dbo.Calendar (IsHoliday) INCLUDE (Dte)
+-- 10/17
+1.) Approved
+
+dbo.Calendar.sql
+1.) Approved 

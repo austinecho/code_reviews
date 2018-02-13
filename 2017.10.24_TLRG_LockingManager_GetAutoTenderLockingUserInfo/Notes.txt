@@ -1,0 +1,4 @@
+[dbo].[GetAutoTenderLockingUserInfo]
+
+1.) SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+2.) Rewrite

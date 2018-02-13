@@ -1,0 +1,13 @@
+2017-03-16
+They need TL/LTL column because in the future they want to deprecate the job that populates EchoOptimizer, so this would send the loads directly to EO. If the mode wasn't specified in the EDIStatging, how would they know mode?
+
+1.) Please make the table names more genric and not limited to a client or mode, so if can be used for processes that may be similiar in the future.
+	So instead of prefixing everything with SC and LTL/TL, use something more generic
+2.) No LTL schema, make more generic
+
+Is this only for Stone Crop client? Can it be used for other clients in the future?
+
+This is for more than LTL, so why LTL schema?
+
+
+Wants a TableType wit NULL values, I suggested to remove that from the TableType because the table is an IDENTITY

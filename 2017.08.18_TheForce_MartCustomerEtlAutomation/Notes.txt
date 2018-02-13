@@ -1,0 +1,62 @@
+IntegrationSQLAgent
+1.) Approved 8/15
+
+Process.JobRefreshMartCustomer_GetDateRange
+1.) Add BEGIN / END
+-- New 8/16
+1.) Approved
+
+[Process].[GetMostRecentLogByRunType]
+1.) Fix example usage (wrong SP)
+2.) Add BEGIN / END
+3.) Add SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED 
+-- New 8/16
+1.) Approved
+
+Initial.PopulateReferenceLoadLane
+1.) Approved
+
+Initial.ProcessLoadBatch
+1.) Approved
+
+Initial.ProcessLoadBatchAggregate
+1.) Approved
+
+Process.CleanupLogs
+1.) Add comments
+2.) Add BEGIN / END
+3.) When is this executed? Job?
+-- New 8/16
+1.) Approved
+
+Process.Log
+1.) Approved
+
+RefreshMartCustomer - SQL Job
+1. What is purpose of below code?
+IF NOT EXISTS (SELECT name FROM msdb.dbo.sysoperators where name = N'OperationsSupport')
+BEGIN
+	EXEC msdb.dbo.sp_add_operator @name=N'OperationsSupport', 
+		@enabled=0, 
+		@email_address=N'qa@echo.com'
+END
+GO
+2.) Change job schedule name to fit this format '7XW - MTWTFSS - 12:00 AM' (1XW - S - 9:30 PM)
+-- New 8/16
+1.) Approved
+
+RefreshMartCustomer - SSIS Package
+1.) What happens if it fails after import fact data? Will it try again and import duplicates?
+2.) We usually include a Event Handler incase it fails anywhere so someone can be notified
+-- New 8/16
+1.) Approved
+
+[Script.PreDeployment]
+1.) Should this be a pre deployment or a one off CR?
+-- New 8/16 
+1.) Removed, approved
+
+[ShrinkLogVarcharsTo4000]
+1.) Should this be a pre deployment or a one off CR?
+-- New 8/16 
+1.) Removed, approved

@@ -1,0 +1,30 @@
+[CarrierPortal].[GetOptimizerActiveLoadsByCarrierGuid]
+1.) Add index CREATE NONCLUSTERED INDEX IX_tblCarrierRemoveReasons_CarrierGuid_Incl ON dbo.tblCarrierRemoveReasons (CarrierGuid) INCLUDE (LoadGuid)
+2.) Specify INNER for the joins
+3.) We prefer SQL reserved words to be in upper case (SELECT, IN, JOIN, WHERE, FROM, etc.)
+4.) Qualify object names as well please
+-- New 8/25
+1.) Wait for index
+
+[CarrierPortal].[GetDriversByLoadGuids]
+1.) Include example execution plan in comments (just a few loadGuids for table type will suffice)
+2.) Add schema to vwOptimizerDriverAssignment
+3.) We prefer SQL reserved words to be in upper case (SELECT, IN, JOIN, WHERE, FROM, etc.)
+4.) Qualify object names as well please
+
+[CarrierPortal].[GetLoadStopsByLoadGuids]
+1.) Add schema to vwOptimizerLoadStops
+2.) We prefer SQL reserved words to be in upper case (SELECT, IN, JOIN, WHERE, FROM, etc.)
+3.) Include example execution plan in comments (just a few loadGuids for table type will suffice)
+4.) Qualify object names as well please
+
+[CarrierPortal].[vwOptimizerUpcomingLoads]
+1.) Rewrite to utilize a CTE that selects the loadguid from only loadboard table that fits the requirements of what is needed from loadboard then do the activeloads cte joining on the first created CTE
+2.) We prefer SQL reserved words to be in upper case (SELECT, IN, JOIN, WHERE, FROM, etc.)
+3.) Qualify object names as well please
+
+[CarrierPortal].[vwOptimizerActiveLoads]
+1.) Rewrite to utilize a CTE that selects the loadguid from only loadboard table that fits the requirements of what is needed from loadboard then do the activeloads cte joining on the first created CTE
+2.) What is the point of checking for status in? Those are the only possible statues in tblLoadBoard
+3.) We prefer SQL reserved words to be in upper case (SELECT, IN, JOIN, WHERE, FROM, etc.)
+4.) Qualify object names as well please

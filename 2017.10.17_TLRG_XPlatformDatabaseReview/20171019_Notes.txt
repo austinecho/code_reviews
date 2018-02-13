@@ -1,0 +1,51 @@
+Carrier.sql (Schema)
+1.) Correct in JDT-Schema_Change branch but not correct in develop branch
+
+CarrierLane.sql (Schema)
+1.) Correct in JDT-Schema_Change branch but not correct in develop branch
+
+Routing.sql (Schema)
+1.) Correct in JDT-Schema_Change branch but not correct in develop branch
+
+Customer.sql (Schema)
+1.) Correct in JDT-Schema_Change branch but not correct in develop branch
+
+Carrier.OptimizerUpdateDomainState.sql
+1.) Correct in JDT-Schema_Change branch but not correct in develop branch
+
+Customer.OptimizerUpdateDomainState.sql
+1.) Correct in JDT-Schema_Change branch but not correct in develop branch
+
+Routing.Load.sql
+1.) Since we are not renaming columns, please remove IsPalletStackable in develop branch
+
+Routing.Route.sql
+1.) Since we are not renaming columns, please remove IsPalletStackable in develop branch
+
+--================================================================================================================
+-- Approved 
+--================================================================================================================
+
+Routing.LoadEquipment.sql
+1.) Approved
+
+Routing.LoadSpecialService.sql
+1.) Approved
+
+Routing.LoadStop.sql
+1.) Approved
+
+Routing.LoadStopShipment.sql
+1.) Approved
+
+Routing.RouteItemizedPrice.sql
+1.) Approved
+
+Routing.RouteSpecialService.sql
+1.) Approved
+
+Routing.RouteTenderAction.sql
+1.) Approved
+
+Routing.Routing.sql
+1.) Approved

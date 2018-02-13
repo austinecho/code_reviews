@@ -1,0 +1,15 @@
+Carrier.Indemnity.sql
+1.) Should modified date / modified by be nullable?
+2.) Is there a reason there's no FK constraint to tblCarrier and tblCustomer?
+
+Carrier.IndemnityInput.sql
+1.) Approved
+
+Carrier.InsertUpdateIndemnityCustomers.sql
+1.) Approved
+
+Carrier.GetIndemnityCustomersByCarrier.sql
+1.) Approved
+
+dbo.CaseMgmtReason.sql
+1.) Approved

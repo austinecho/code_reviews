@@ -1,0 +1,1 @@
+nullable, default, end of table, replication (contazct DBAs for replication) and update DB02 project if replicated

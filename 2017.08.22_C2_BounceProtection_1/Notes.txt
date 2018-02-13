@@ -1,0 +1,25 @@
+CarrierRepLoadBookLog
+1.) Should the Unique Index include BookedOn as well?
+2.) What happens if a load changes owners? 
+3.) Does the BookedOn value get updated if the load is bounced or always remain as the first time it was booked?
+4.) NOT FOR REPLICATION not needed because that table isn't replicated
+
+GetBookedDateByRepGuidAndLoadId
+1.) How many times will this be executed?
+2.) Create Index History.CarrierRepLoadBookLog
+CREATE NONCLUSTERED INDEX IX_CarrierRepLoadBookLog_CarrierOwningRepGuid_LoadId_Incl
+ON History.CarrierRepLoadBookLog (CarrierOwningRepGuid, LoadId)
+INCLUDE (BookedOn);  
+
+GetTierInfoByOriginDestinationZipAndEffectiveDate
+1.) Rewrite SP to find the FileImportId based on OriginZip, DestinationZip, and EffectiveDate. Then find all fields based on FileImportID
+(I can assist if needed.)
+
+Integration.GetUserGuidFromClutchId 
+1.) Integration.User will never have more than one row with the same ApplicationID, EchoUserGUID, and ApplicationUserID? If that is true, remove the existing Unique Index and create:
+CREATE UNIQUE NONCLUSTERED INDEX [UX_User_ApplicationID_ApplicationUserID_Incl] 
+ON [Integration].[User] ([ApplicationID] ASC, [ApplicationUserID] ASC)
+INCLUDE ([EchoUserGUID]) 
+
+InsertNewRepLoadBookLogEntry
+1.) Add SET NOCOUNT ON

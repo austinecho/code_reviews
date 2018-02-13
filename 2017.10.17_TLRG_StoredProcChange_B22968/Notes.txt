@@ -1,0 +1,5 @@
+[dbo].[tlrgGetLoadFromOptimizerByLoadGUID].[sql]
+1.) Add comment header (Created By, Created Date, Description, and example execution)
+2.) Add BEGIN / END
+3.) Add SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED under SET NOCOUNT ON
+4.) -- Will check preformance once it is deployed and sample execution is provided 

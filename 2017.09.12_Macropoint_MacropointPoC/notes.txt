@@ -1,0 +1,131 @@
+2017.09.12_Macropoint_MacropointPoC
+
+
+-======================================================================================================
+-- Approved 
+-======================================================================================================
+
+[Macropoint].[GetLoadsToOptOut] 
+1.) Removed, approved 8/11
+1.) Please add SP to development env
+2.) Remove the NOLOCK hints and add SET NOCOUNT ON and SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED after BEGIN
+3.) Specify INNER JOIN instead of just JOIN 
+4.) MacroPointOrderLoad does not exist
+
+[Macropoint].[GetOrderIdByLoadGuid] 
+1.) Approved 8/11
+1.) Add SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED after SET NOCOUNT ON
+2.) What is @RC in the sample execution plan?
+3.) Is this SP suppose to return a value?
+4.) (Adding Unique Index on Macropoint.Order should help preformance)
+
+[Macropoint].[GetLoadContactByLoadGuid]
+1.) Please add header comments (Created Date, Created By, and Description)
+2.) Apply casing to SQL reserved keywords (SELECT, FROM, INNER JOIN, WHERE)
+3.) A GUID has a length of 36, therefore LoadGUid should be declared as UNIQUEIDENTIFIER or have a length of 36.
+4.) Provide sample execution 
+5.) Rewrite it to SELECT LoadID first and then use the LoadId to bring back the EmailID
+-- New 8/18
+1.) Approved
+
+[dbo].[GetAutoTrackedLoadMobilePhoneDataByMSISDN]
+1.) Approved 8/11
+1.) Alter [IX_LoadMobileTracking_MobilePhoneId_LoadMobileTrackingStatusId_Incl] and add LastModifiedBy to the INCLUDE 
+2.) Remove the NOLOCK hints and just add SET NOCOUNT ON and SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED after BEGIN
+3.) Specify INNER JOIN instead of just JOIN
+
+Post Deploy - dbo.tblLoadActivityType.sql
+1.) Approved 
+
+Post Deploy - dbo.tblLoadActivitySubType.sql
+1.) Approved 
+
+MacroPoint.GetMacroPointSubTypeId
+1.) Approved 8/11
+
+[dbo].[LoadMobileTracking]
+1.) Added index per request, Approved 8/11
+
+[dbo].[se_procLoadListSelById]
+1.) Approved 8/14
+
+[dbo].[procTrackNTrace]
+1.) Approved 8/14
+
+[dbo].[GetTrackingTypes]
+1. Approved 8/14
+
+Post Deploy - Macropoint.TypeTranslation.sql
+1.) Approved 8/14
+
+DB02 Schema - Macropoint.sql
+1.) This should be in svn://svn.echo.com:4345/Reporting/Database.EchoOptimizer.DB02/Branch/Project/MacroPoint_MacroPointPOC/EchoOptimizer.DB02/Security/Schemas/ReplSchemas
+-- New 8/18
+1.) Approved
+
+[MacroPoint].[GetCarrierStatsByActivity]
+1.) Approved 8/18
+
+dbo.tblLoadActivitySubType.sql DB01 and DB02
+1.) Approved 8/11
+--1.) You need to update the DB02 table as well because this table is replicated.
+
+[Macropoint].[CreateOrder]
+1.) What is OrderID Output used for? Is it needed?
+-- New 8/11
+1.) It would be good to remove @OrderID from sample execution so no one gets confused
+-- New 8/18
+1.) Approved
+
+[Macropoint].[DeleteOrder]
+1.) Removed, approved 8/11
+--1.) Why are these records being deleted instead of retained? 
+
+[Macropoint].[GetLoadsToOptIn]
+1.) Fails to execute. Do you mean CarrierPortal.vwOptimizerLoadReference? Currently, CarrierPortal.OptimizerLoadReference doesn't exist.
+2.) Specify INNER JOIN instead of just JOIN 
+3.) Remove the NOLOCK hints and just add SET NOCOUNT ON and SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED after BEGIN
+4.) C.TrackingType does not exist. Did you mean TrackingTypeID?
+-- New 8/11
+1.) Please refactor, I reccomend breaking it down into smaller SELECT statements and using CTEs or TempTables to gather what is needed per table to avoid so many scans and key look ups
+2.) Check start of refactor
+-- New 8/15
+1.) Refactor to check if @LoadID is NULL or provided (IF / ELSE)
+-- New 8/22
+1.) If LoadGUID is NOT NULL, find @LoadID and use that instead of LoadGuid in WHERE clause.
+2.) Add index IX_tblCarrier_TrackingTypeID_Incl ON tblCarrier (TrackingTypeID) INCLUDES (CarrierGuid, CarrierName)
+-- New 8/23
+1.) Index added, checking changes once deployed
+-- New 8/24
+1.) Approved
+
+Macropoint.Order.sql
+1.) Will there ever be  Should there be a unqiue constraint on LoadGuid and MacroPointOrderId?
+2.) Collate needed?
+-- New 8/11
+1.) The Unqiue constraint should have both LoadGuid and MacroPointOrderId. No include
+2.) It should be UX instead of IX
+3.) Why was an index created on LoadGuid to include MacroPointOrderId?
+-- New 8/18
+1.) Should there be a unique constraint on MacroPointOrderId and LoadGuId?
+
+[Macropoint].[GetLoadContactByMPOrderId]
+1.) Please add header comments (Created Date, Created By, and Description)
+2.) Apply casing to SQL reserved keywords (SELECT, FROM, INNER JOIN, WHERE)
+3.) Provide sample execution 
+4.) Rewrtie to find LoadID first without joining on tblUsers, then find LoadId, and Email based on LoadID.
+-- New 8/18
+1.) Rewrite by select LoadID, LoadGuid in CTE, then join (script)
+-- New 8/24
+1.) Approved
+
+MacroPoint.TypeTranslation
+1.) There should be a post deploy 
+-- New 8/14
+1.) The Unique Index name doesn't match the supplied columns
+-- New 8/18
+1.) Remove LoadActivitySubTypeId from index name
+-- New 8/24
+1.) Should be UX not IX since it's a unique index
+-- New 8/24
+1.) Approved

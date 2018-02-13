@@ -1,0 +1,10 @@
+[dbo].[PipelineRule]
+1.) Is there a reason PipelineRuleID isn't auto identity?
+2.) PK needs to be named according to naming conventions (PK_tableName_ColumnName)
+
+[dbo].[GetPipelineRules]
+1.) Add BEGIN / END
+2.) Is this always used to select everything in the PipelineRule table? How big is this table expected to grow?
+
+[dbo].[PipelineDecoderPreparserRules]
+1.) Approved

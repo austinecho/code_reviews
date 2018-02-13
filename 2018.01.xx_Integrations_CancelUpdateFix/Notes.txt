@@ -1,0 +1,122 @@
+Remove RowLocks for now and just go with the added indexes. If that fails, add rowlocks. If that fails, rewrite SP to make it not all called by a parent
+
+
+
+LTLin.ShipmentReference.sql
+1.) CREATE INDEX IX_LTLin_ShipmentReference_MessageID_ShipmentReferenceCode_RowDeleted_ValidStart_INCL ON LTLin.ShipmentReference (MessageID,ShipmentReferenceCode,RowDeleted, ValidStart) INCLUDE (ShipmentReferenceValue)
+
+
+
+
+LTLin.ShipmentStopReference.sql
+1.) Need sample SP execution for [CreateUpdateShipmentStopReference] to find indexes
+-- 01/05
+1.) CREATE NONCLUSTERED INDEX IX_LTLin_ShipmentStopReference_MessageID_RowDeleted_ValidStart_StopReferenceCode_INCL ON LTLin.ShipmentStopReference (MessageID, RowDeleted, ValidStart, StopReferenceCode) INCLUDE (StopReferenceValue)
+
+TLin.ShipmentReference.sql
+1.) CREATE INDEX IX_TLin_ShipmentReference_MessageID_ShipmentReferenceCode_RowDeleted_ValidStart_INCL ON TLin.ShipmentReference (MessageID,ShipmentReferenceCode,RowDeleted, ValidStart) INCLUDE (ShipmentReferenceValue)
+
+TLin.ShipmentStop.sql
+1.) Need sample SP execution for [CreateUpdateShipmentStop] to find indexes
+-- 01/05
+1.) CREATE NONCLUSTERED INDEX IX_TLin_ShipmentStop_MessageID_StopSetID_RowDeleted_ValidStart_ShipmentStopID ON TLin.ShipmentStop (MessageID, StopSetID, RowDeleted, ValidStart, ShipmentStopID) 
+2.) CREATE NONCLUSTERED INDEX IX_TLin_ShipmentStop_MessageID_ValidStart_ValidEnd_RowCreated_RowDeleted_INCL ON TLin.ShipmentStop (MessageID, ValidStart, ValidEnd, RowCreated, RowDeleted) INCLUDE (RowDeletedBy)
+3.) * This would preform better if a CTE was used to find the StopSetId and then that CTE was used to join on in the INSERT statement. Since this a prod issue, I am not sure if there is enough time to test / implement.
+
+TLin.ShipmentStopLineItem.sql
+1.) Need sample SP execution for [CreateUpdateShipmentStopLineItem] to find indexes
+-- 01/05
+1.) CREATE NONCLUSTERED INDEX IX_TLin_ShipmentStopLineItem_MessageID_RowDeleted_ValidStart_ValidEnd_RowCreated_ShipmentStopID_INCL ON TLin.ShipmentStopLineItem (MessageID, RowDeleted, ValidStart, ValidEnd, RowCreated, ShipmentStopID) INCLUDE (RowDeletedBy)
+2.) * Would also preform better if CTE was implemented.
+
+TLin.ShipmentStopReference.sql
+1.) Need sample SP execution for [CreateUpdateShipmentStopReference] to find indexes
+-- 01/05
+1.) CREATE NONCLUSTERED INDEX IX_TLin_ShipmentStopReference_MessageID_RowDeleted_ValidStart_StopReferenceCode_INCL ON TLin.ShipmentStopReference (MessageID, RowDeleted, ValidStart, StopReferenceCode) INCLUDE (StopReferenceValue)
+
+
+
+--==========================================================================================
+-- Approved
+--==========================================================================================
+TLin.CreateUpdateShipment.sql
+1.) Remove Rowlock hint
+--1/4/2018
+1.) Approved
+
+TLin.CreateShipmentTAResponse.sql
+1.) Remove Rowlock hint
+--1/4/2018
+1.) Approved
+
+TLin.CreateUpdateInboundShipment.sql
+1.) Approved
+
+TLin.CreateUpdateShipmentReference.sql
+1.) Remove Rowlock hint
+--1/4/2018
+1.) Approved
+
+LTLin.CreateShipmentTAResponse.sql
+1.) Remove Rowlock hint
+--1/4/2018
+1.) Approved
+
+LTLin.CreateUpdateInboundShipment.sql
+1.) Approved
+
+LTLin.CreateUpdateShipmentReference.sql
+1.) Remove Rowlock hint
+--1/4/2018
+1.) Approved
+
+LTLin.CreateUpdateShipmentStop.sql
+1.) Remove Rowlock hint
+--1/4/2018
+1.) Approved
+
+LTLin.CreateUpdateShipmentStopLineItem.sql
+1.) Remove Rowlock hint
+--1/4/2018
+1.) Approved
+
+LTLin.CreateUpdateShipmentStopReference.sql
+1.) Remove Rowlock hint
+--1/4/2018
+1.) Approved
+
+LTLin.CreateUpdateShipment.sql
+1.) Remove Rowlock hint
+--1/4/2018
+1.) Approved
+
+TLin.CreateUpdateShipmentStop.sql
+1.) Remove Rowlock hint
+-- 01/05
+1.) Approved
+
+TLin.CreateUpdateShipmentStopLineItem.sql
+1.) Remove Rowlock hint
+-- 01/05
+1.) Approved
+
+TLin.CreateUpdateShipmentStopReference.sql
+1.) Remove Rowlock hint
+-- 01/05
+1.) Approved
+
+LTLin.ShipmentStop.sql
+1.) Need sample SP execution for [CreateUpdateShipmentStop] to find indexes
+-- 01/05
+1.) CREATE NONCLUSTERED INDEX IX_LTLin_ShipmentStop_MessageID_StopSetID_RowDeleted_ValidStart_ShipmentStopID ON LTLin.ShipmentStop (MessageID, StopSetID, RowDeleted, ValidStart, ShipmentStopID) 
+2.) CREATE NONCLUSTERED INDEX IX_LTLin_ShipmentStop_MessageID_ValidStart_ValidEnd_RowCreated_RowDeleted_INCL ON LTLin.ShipmentStop (MessageID, ValidStart, ValidEnd, RowCreated, RowDeleted) INCLUDE (RowDeletedBy)
+--01/05 
+1.) Approved
+
+LTLin.ShipmentStopLineItem.sql
+1.) Need sample SP execution for [CreateUpdateShipmentStopLineItem] to find indexes
+-- 01/05
+1.) CREATE NONCLUSTERED INDEX IX_LTLin_ShipmentStopLineItem_MessageID_RowDeleted_ValidStart_ValidEnd_RowCreated_ShipmentStopID_INCL ON LTLin.ShipmentStopLineItem (MessageID, RowDeleted, ValidStart, ValidEnd, RowCreated, ShipmentStopID) INCLUDE (RowDeletedBy)
+2.) * Would also preform better if CTE was implemented.
+-- 01/05
+1.) Approved

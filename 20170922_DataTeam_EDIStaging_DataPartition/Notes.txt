@@ -1,0 +1,138 @@
+
+--======================================================================================================
+-- Approved
+--======================================================================================================
+PS_EDIStaging_DATETIME_2MonthMin.sql
+1.) Approved
+
+PS_EDIStaging_DATETIME_2YearMin.sql
+1.) Approved
+
+3ee-EDI204Inbound_RunInDB02.sql
+1.) Approved
+
+3ff-EDIShipment_RunInDB02.sql
+1.) Approved
+
+3gg-OneOff_RunInDB02.sql
+1.) Approved
+
+5-EDIStaging_PerfScript_INDEX_OBJECT_ReOrganizeRebuild_AllWThresh.sql
+1.) Approved
+
+6-EDIStaging_PerfScript_UpdateStatsRelatedTables_All.sql
+1.) Approved
+
+7-EDIStaging_PerfScript_ViewSP_OBJECT_RefreshRecompile_All.sql
+1.) Approved
+
+EDIStaging_Archive.sql
+1.) Approved
+
+3cc-EDI211_RunInDB02.sql
+1.) Approved
+
+4-EDIStaging_Validation-PlaceHolder.sql
+1.) Approved
+
+5-EDIStaging_PerfScript_INDEX_OBJECT_ReOrganizeRebuild_AllWThresh.sql
+1.) Approved
+
+6-EDIStaging_PerfScript_UpdateStatsRelatedTables_All.sql
+1.) Approved
+
+7-EDIStaging_PerfScript_ViewSP_OBJECT_RefreshRecompile_All.sql
+1.) Approved
+-- Heads up the dynamic SQL generation cuts off.
+
+1-EDIStaging_AddFileGroup_EDIStaging_Archive_DEVONLY_PreDeploy.sql
+1.) Approved
+
+2-EDIStaging_ParitionFunctionScheme_DEVONLY_DBDeploy.sql
+1.) Approved
+
+3b-EDI210.sql
+1.) Line 179 and 186 starting at ID 2 instead of 1?
+2.) Line 346 - Should PK be named with actual table name?
+3.) Line 375 - Should index follow name conventions of INCLUDE?
+4.) Line 392 - [IX_2101s_ID210L] is using a 1 (one) instead of an l (L) for the table name
+-- 9/25
+1.) Approved
+
+3c-EDI211.sql
+1.) Line 224 - Should index be created following naming conventions for INCLUDE?
+-- 9/25
+1.) Approved, creation of index commented out
+
+3d-EDI204Outbound.sql
+1.) Line 31 - Should be > 0
+2.) Line 39, 49 should have "D" included in Type for Default Constraint
+3.) Line 39, 49 should be IF NOT EXISTS
+4.) Line 225, 237 - Should it be named according to conventions? IX_tblName_Status_Incl
+5.) Line 267, 275 - Should it be named according to conventions?
+6.) Line 305 - Should it be named according to conventions?
+-- 9/25
+1.) Approved
+
+PF_EDIStaging_DATETIME_2MonthMin.sql
+1.) How is the date chosen
+-- 9/25
+1.) Approved
+
+PF_EDIStaging_DATETIME_2YearMin.sql
+1.) How is the date chosen
+-- 9/25
+1.) Approved
+
+3e-EDI204Inbound.sql
+1.) Line 331 - Should IX following naming conventions? IX_t204Header_BOLNumber_Incl vs IX_t204Header_BOLNumber_IncID204
+2.) Line 338 - Should IX follow naming conventions
+3.) Line 376 - Should it follow FK conventions (FK_ChildTableName_ParentTableName_ParentTableColumnName)
+4.) Line 389 - Should it follow FK conventions (FK_ChildTableName_ParentTableName_ParentTableColumnName)
+-- 9/25
+1.) Approved according to scope
+
+3f-EDIShipment.sql
+1.) Line 192 - Naming conventions?
+2.) Line 198 - Naming conventions?
+3.) Line 249 - FK naming convention
+4.) Line 253 - FK naming convention
+5.) Line 257 - FK naming convention
+6.) Line 261 - FK naming convention
+-- 9/25
+1.) Approved according to scope
+
+3g-OneOff.sql
+1.) Line 448 - Naming conventions
+2.) Line 461 - Naming conventions
+3.) Line 477 - Naming conventions
+-- 9/25
+1.) Approved according to scope
+
+3aa-EDI214_RunInDB02.sql
+1.) Line 106, 113 - Print wrong table name
+-- 9/25
+1.) Approved
+
+3bb-EDI210_RunInDB02.sql
+1.) Line 126, 133 - It is taking ID 2 instead of ID 1 to start UPDATE
+2.) Line 218 - Should PK have correct table name
+-- 9/25
+1.) Approved
+
+3dd-EDI204Outbound_RunInDB02.sql
+1.) Line 75 - PK named wrong, should be PK_t204OutboundHeader_ID204_CreatedDate
+2.) Line 84 - PK named wrong
+3.) Line 93 - PK named wrong
+-- 9/25
+1.) Approved
+
+3a-EDI214.sql
+PRINT '[t214s]' Section
+1.) Line 184, print statement has wrong table name
+2.) Line 191, print statement has wrong table name
+-- 9/25
+1.) Table name still wrong in above lines
+-- 9/25
+1.) Approved 
+

@@ -1,0 +1,28 @@
+--==============================================================================================
+-- Updated 10/05
+--==============================================================================================
+Inbound.EDIAcknowledgements
+1.) Approved
+
+
+
+--==============================================================================================
+-- Old
+--==============================================================================================
+TLin (Schema)
+1.) Approved
+
+LTLin (Schema)
+1.) Approved
+
+LTLin.EDIAcknowledgements
+1.) Approved
+
+TLin.EDIAcknowledgements
+1.) Approved
+
+LTLin.InsertLTLEDIAcknowledgements.sql
+1.) Make GetDate() and the CreatedBy ID variables. No direct values
+
+TLin.InsertTLEDIAcknowledgements.sql
+1.) Make GetDate() and the CreatedBy ID variables. No direct values

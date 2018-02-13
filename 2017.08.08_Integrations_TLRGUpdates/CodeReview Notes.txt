@@ -1,0 +1,62 @@
+RG.ShipmentStopLineItem
+1.) Slight typo in FK, still has pluralized table name
+2.) Make HazMat bit, name is fine.
+
+-- Good
+
+RG.ShipmentStopReference
+1.) Slight typo in FK, still has pluralized table name
+2.) Does ShipmentStopID need Identity or is it populated a different way?
+3.) PK named with wrong table name (Shipments instead of Shipment)
+
+-- Good
+
+RG.ShipmentStop
+1.) PK Named incorrectly
+2.) Default Constraints named incorrectly
+
+-- Updating PK
+
+RG.ShipmentReference
+1.) FK named with schema?
+
+-- Needs to be fixed
+
+RG.Shipment
+1.) HazMat is CHAR(1). Make bit
+
+-- Good
+
+RG.TT_ShipmentStopReference
+1.) Good
+
+TT_ShipmentStopLineItem
+1.) HazMat is CHAR(1), make bit
+2.) Default constraint not needed since it is enforced in physcial table
+
+-- Good
+
+RG.TT_ShipmentStop
+1.) Good
+
+RG.TT_ShipmentReference
+1.) Physical Table has TINYINT but TT has SMALLINT (ShipmentReferenceSetID)
+
+-- Good
+
+RG.TT_Shipment
+1.) No need for default constraint because it has a default in the physical table
+
+-- Good
+
+RG.CreateShipmentStopReference.sql
+1.) Why is ROWLOCK being used?
+
+[RG].[CreateShipmentStopLineItem]
+1.) Good
+
+[RG].[CreateShipmentStop]
+1.) Good
+
+[RG].[CreateShipmentReference]
+1.) Good
