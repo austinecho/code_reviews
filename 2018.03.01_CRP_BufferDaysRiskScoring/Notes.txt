@@ -1,5 +1,46 @@
-Ask about same job names in repo
+Sqlproj file - EchoOptimizer.sqlproj
+1.) Approved
 
-Can the values be moved to physical table? If they change, should be physical table. If no change, can leave in SP.
+Stored Procedure - dboUpdateCustomerBufferDayRiskScores.sql
+1.) Should the table variables be created as physical tables instead? Will these values change or remain the same?
+2.) CREATE NONCLUSTERED INDEX IX_tblCustomerExtended_BufferDayRiskScore_Incl ON dbo.tblCustomerExtended (BufferDayRiskScore) INCLUDE (CustomerGuid)
+3.) Scans on tblCustomer and tblCustomerExtended but it's okay
 
-Where's SSIS package
+Stored Procedure - dbo.procSetOverBufferCreditStatusById.sql
+1.) Approved
+
+Stored Procedure - dbo.procSetOverBufferCreditStatusById4PrePay.sql
+1.) Approved
+
+Stored Procedure - dbo.procSetOverBufferCreditStatusForAllCustomers.sql
+1.) Approved
+
+Script - OptimizerSQLAgent.sql
+1.) Approved
+
+Table (DB01) - dbo.tblCustomerExtended.sql
+1.) Approved
+
+Script - BackfillTblCustomerExtended.sql
+1.) Line 79: Shouldn't it be if @MaxCustomerToImport (2 billion) > @actualNumberOfCustomersToImport (50,000 ish), set @MaxCustomerToImport to @actualNumberOfCustomersToImport?
+2.) For GETDATE(), declare it as a variable and use the variable for the table insert instead of GETDATE()
+3.) Instead of Select * from the error table, put the column names
+
+Table (DB02) - dbo.tblCustomerExtended.sql
+1.) Approved
+
+Job - UpdateOverBufferCreditStatus.sql and Update Over Buffer Credit Status.sql
+1.) Why do you have both of these job files? Only one is needed.
+2.) UpdateOverBufferCreditStatus.sql has the correct heading with ":setvar ENABLE_JOB !!ENABLE_JOB!!"
+3.) Schedule name should be: SMTWRFS - 1:00 AM
+
+Environment settings sheet - UpdateOverBufferCreditStatus.Settings.xlsx
+1.) Approved
+
+Dtsconfig template - UpdateOverBufferCreditStatus.template.xml
+1.) Awaiting change to SSIS Package
+
+Build file - UpdateOverBufferCreditStatus.build
+
+SSIS Package - UpdateOverBufferCreditStatus
+1.) Send email and event handler send email should be a scripted task, not the built in email task. (You can check svn://svn.echo.com:4345/Reporting/SqlJob.UltiproTalentFeed/Trunk/UltiproTalentFeed/UltiProTalentFeed.sln for an example)
