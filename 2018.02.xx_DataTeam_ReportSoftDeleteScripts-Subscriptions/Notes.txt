@@ -1,10 +1,9 @@
 DeleteSubscriptions-InfoManager.sql
-
 1.) Approved
 2.) Are you suppose to be checking the 'IsInInfoManager' BIT?
 
 DeleteSubscriptions-RS01.sql
-
 1.) Approved 
 
 PauseSubscriptions-RS01.sql
+1.) Approved 
