@@ -1,0 +1,21 @@
+Process].[ProcessRequestServer]
+1.) In the wile loop when @CountUnchecked is set, should you include IsEnabled? Since it is included above.
+
+[Process].[GetIderaAlertsList]
+1.) Approved
+
+Data.Process.StatusRequest.sql
+1.) Approved
+
+Data.Process.StatusRequestExclude.sql
+1.) Approved
+
+Data.Process.StatusRequestType.sql
+1.) Approved
+
+Data.Reference.IderaMetric.sql
+1.) Approved
+
+Script.PostDeployment.sql
+1.) Approved
+-- This project isn't Actinoform deployed, but if it gets to that state this will be good.

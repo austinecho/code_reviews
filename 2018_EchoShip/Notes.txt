@@ -1,0 +1,56 @@
+GetCustomerAccountInfo
+
+1.) Show me the application call
+2.) How is the UI tied to this?
+3.) Use case for this query / how often is it called?
+
+4.) Show me the data access pattern for this query
+
+5.) Is there already an SP that can achieve this? Perhaps ask Echo dev
+6.) Why do you have ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY? A CustomerGuid will only return one record.
+
+GetBillingRep
+
+1.) Show me the application call
+2.) How is the UI tied to this?
+3.) Use case for this query / how often is it called?
+
+4.) Show me the data access pattern for this query
+
+5.) Is there already an SP that handles this?
+
+GetCustomerAccountId
+
+1.) Show me the application call
+2.) How is the UI tied to this?
+3.) Use case for this query / how often is it called?
+
+4.) Show me the data access pattern for this query
+
+5.) Is there already an SP that handles this?
+6.) Why do you have ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY? A CustomerGuid will only return one record.
+
+GetInvoiceLedgeDocuments
+
+1.) Show me the application call
+2.) How is the UI tied to this?
+3.) Use case for this query / how often is it called?
+
+4.) Show me the data access pattern for this query
+5.) Can we change to use a CTE for performance?
+
+InsertIntoAccountLog
+
+1.) Show me the application call
+2.) How is the UI tied to this?
+3.) Use case for this query / how often is it called?
+
+4.) Show me the data access pattern for this query
+
+InsertNewPaysimpleCustomerGuid
+
+1.) Show me the application call
+2.) How is the UI tied to this?
+3.) Use case for this query / how often is it called?
+
+4.) Show me the data access pattern for this query

@@ -2,8 +2,8 @@ Stored Procedure - dboUpdateCustomerBufferDayRiskScores.sql
 1.) Should the table variables be created as physical tables instead? Will these values change or remain the same?
 2.) CREATE NONCLUSTERED INDEX IX_tblCustomerExtended_BufferDayRiskScore_Incl ON dbo.tblCustomerExtended (BufferDayRiskScore) INCLUDE (CustomerGuid)
 3.) Scans on tblCustomer and tblCustomerExtended but it's okay
--- 02/16 
-1.) Index wasn't added to tblCustomerExtended
+-- 02/16
+1.) Approved
 
 Script - BackfillTblCustomerExtended.sql
 1.) Line 79: Shouldn't it be if @MaxCustomerToImport (2 billion) > @actualNumberOfCustomersToImport (50,000 ish), set @MaxCustomerToImport to @actualNumberOfCustomersToImport?
