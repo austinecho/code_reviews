@@ -1,0 +1,5 @@
+vwCustomerAccountOwner
+1.) Order by CURRENT_TIMESTAMP is not neccessary 
+
+vwLedgerDocument
+1.) Approved

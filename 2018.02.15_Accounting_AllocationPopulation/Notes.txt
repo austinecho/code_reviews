@@ -1,4 +1,6 @@
 Stored Procedure - Accounting.InsertAllocations.sql
+1.) Remove select of variables line 40 - 44
+
 Table - Accounting.Allocation.sql
 Table - Accounting.AllocationSnapshot.sql
 Schema - Accounting.sql
