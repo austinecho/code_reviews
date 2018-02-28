@@ -1,0 +1,3 @@
+dbo.procGetBouncedCarriersForLoad
+
+1.) CREATE NONCLUSTERED INDEX IX_tblCarrierRemoveReasons_CarrierLoadId_Incl ON dbo.tblCarrierRemoveReasons (CarrierLoadId) INCLUDE (CarrierRemoveReasonCodeID, BookedWith, CarrierTotal)
