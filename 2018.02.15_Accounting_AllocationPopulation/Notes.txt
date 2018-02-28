@@ -1,7 +1,18 @@
 Stored Procedure - Accounting.InsertAllocations.sql
 1.) Remove select of variables line 40 - 44
+2.) Remove EchoOptimizer from FROM section. (Since we are already in EchoOptimizer DB, it is not needed and will cause warnings in the DB project) 
+3.) Remove the select LoadType SELECT statement line 168 - 173
+4.) Since this SP inserts, remove SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED; and add WITH(NOLOCK) for the selects on physical tables.
 
 Table - Accounting.Allocation.sql
+1.) Remove underscore from Parent_Enumber
+
 Table - Accounting.AllocationSnapshot.sql
+1.) Remove underscore from Parent_Enumber
+2.) Do you want a CreatedDate on this table?
+
 Schema - Accounting.sql
+1.) Approved
+
 SQL Job - SqlJob.AccountingPopulateAllocations
+1.) Approved
