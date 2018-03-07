@@ -1,0 +1,56 @@
+1_EchoQuote_FileGroup_ParitionFunctionAndScheme.sql
+1.) Comments say claims, not a big deal but could throw someone off
+
+2_DB01_EchoQuote_Remove_From_Replication.sql
+1.) Comments say claims, not a big deal but could throw someone off
+
+3a_DB01_EchoQuote_Schema_Change_BATCH_v2.sql
+1.) Did you mean for Batch Count to be 500,000?
+2.) Shouldn't it be SET @LoopCt = @LoopCt + @BatchCt + 1 or else you will repeat one each time.
+
+3aa_DB02_EchoQuote_Schema_Change_BATCH_v2.sql
+1.) Did you mean for Batch Count to be 500,000?
+2.) Shouldn't it be SET @LoopCt = @LoopCt + @BatchCt + 1 or else you will repeat one each time.
+
+4_EchoQuote_Partition_Validation.sql
+1.) Comments say claims, not a big deal but could throw someone off
+
+5_DB01_EchoQuote_Add_Back_To_Replication.sql
+1.) Comments say claims, not a big deal but could throw someone off
+
+ChangeSet.Rate.sql
+1.) Approved
+
+Horizon.SuggestedCarrier.sql
+1.) Approved
+
+Horizon.SuggestedCarrierType.sql
+1.) Approved
+
+Production.Quote.sql
+1.) Approved
+
+Horizon.GetQuoteGridDetails.sql
+1.) Approved
+
+Horizon.SelectQuote.sql
+1.) Approved
+
+DB02 - Horizon.SuggestedCarrier.sql
+1.) Approved
+
+EchoQuote_Archive.sql
+1.) Approved
+
+PF_EchoQuote_DATETIME_1Year.sql
+1.) Approved
+
+PF_EchoQuote_DATETIME_2Year.sql
+1.) Approved
+
+PS_EchoQuote_DATETIME_1Year.sql
+1.) Approved
+
+PS_EchoQuote_DATETIME_2Year.sql
+1.) Approved
+
