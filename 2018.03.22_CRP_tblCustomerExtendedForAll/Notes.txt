@@ -1,0 +1,5 @@
+dbo.tblCustomerExtended
+1.) Please name the default constraints according to the conventions
+
+dbo.procAddEditAccount
+1.) Please remove the transaction that you added, don't want to take any chances with legacy SP
