@@ -1,0 +1,28 @@
+Image.Image
+1.) PK should include schema, [PK_Image_Image_ImageId]
+2.) UK Should include schema
+
+CarrierDocument.CarrierDocument
+1.) PK should include schema
+2.) UK Should include schema
+
+CarrierDocument.Page
+1.) PK should include schema
+2.) FK should be named as, FK_Schema_ ChildTableName_Schema_ParentTableName_ParentTableColumnName
+
+ShipmentPayableAccount.ShipmentPayableAccount
+1.) PK should include schema
+
+ShipmentPayableAccount.SupportingDocument
+1.) PK should include schema
+2.) FK should be named as, FK_Schema_ ChildTableName_Schema_ParentTableName_ParentTableColumnName
+
+ReceiveSupportingDocumentImage.State
+1.) PK is missing an underscore between Image and State
+2.) Should CreatedDate have a default value of GetDate()?
+
+ShipmentPayableAccount.DocumentType
+1.) PK should include schema
+
+dbo.GetUploadedDocumentsCountByLoadId
+1.) Is this a script or is it just deleting a SP for the project?
