@@ -3,3 +3,5 @@ dbo.tblCustomerExtended
 
 dbo.procAddEditAccount
 1.) Please remove the transaction that you added, don't want to take any chances with legacy SP
+-- 03/09
+1.) Approved
