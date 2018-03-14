@@ -1,11 +1,15 @@
 INC0290253
 dbo.rs_procARAgingSummary.sql
 1.) Add modified by to comments
+-- 03/14
+1.) Approved
 
 InsertBufferdayRiskScore.sql
 1.) Add IF NOT EXISTS and check for value 1042
 2.) Qualify full table names or add USE EchoOptimizer
 3.) Add transaction with try / catch and eror handleing
+-- 03/14
+1.) Approved
 
 dbo.rs_procARAgingSummary_DisplayFields.sql
 1.) Approved
@@ -13,6 +17,11 @@ dbo.rs_procARAgingSummary_DisplayFields.sql
 INC0291238
 dbo.rs_APCIRAnalysis.sql
 1.) Add modified by to comments
+-- 03/14
+1.) Approved
 
 INC0290765
 dbo.rs_procAPAging.sql
+1.) Add modified by to comments
+-- 03/14
+1.) Approved
