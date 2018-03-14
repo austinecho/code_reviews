@@ -1,41 +1,5 @@
-dboUpdateCustomerBufferDayRiskScores.sql
+Finance.UpdateCustomerCreditLimit
 
-
-dbo.procSetOverBufferCreditStatusById.sql
-
-
-dbo.procSetOverBufferCreditStatusById4PrePay.sql
-
-
-dbo.procSetOverBufferCreditStatusForAllCustomers.sql
-
-
-OptimizerSQLAgent.sql
-
-
-dbo.tblCustomerExtended.sql
-
-
-BackfillTblCustomerExtended.sql
-
-
-DB02 - dbo.tblCustomerExtended.sql
-
-
-Update Over Buffer Credit Status.sql
-
-
-UpdateOverBufferCreditStatus.sql
-
-
-UpdateOverBufferCreditStatus.Settings.xlsx
-
-
-UpdateOverBufferCreditStatus.template.xml
-
-
-UpdateOverBufferCreditStatus.build
-
-
-UpdateOverBufferCreditStatus
-
+1.) Added Created by, created date to header comments
+2.) Declare GETDATE() as a variable and pass that value for the ModifiedDate update.
+3.) Is it possible for the @ModifiedBy to not be a valid user?
