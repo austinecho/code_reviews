@@ -1,0 +1,5 @@
+CarrierPortal.ManagerUser.sql 
+1.) Should created date have a default constraint of GetDate? If so, be sure to name it according to conventions.
+
+[CarrierPortal].[ManagerUserCarrierUsers]
+1.) CREATE NONCLUSTERED INDEX IX_CarrierPortal_ManagerUser_ManagerUserOptimizerGuid_UserOptimizerGuid ON CarrierPortal.ManagerUser (ManagerUserOptimizerGuid, UserOptimizerGuid)
