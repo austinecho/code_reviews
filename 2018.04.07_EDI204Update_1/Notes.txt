@@ -1,27 +1,47 @@
 dbo.EDISmartProxyActions
+1.) Should ActionID be an identity column?
+2.) Please name PK according to conventions (http://devwiki/display/DM/SQL+Server+Object+Naming+Convention)
 
 [dbo].[EDISmartProxyCustomerActionConfig]
+1.) SkipAction should be IsSkipAction because it's a bit
+2.) Name PK according to conventions
+3.) Default constraint should be named on the column level
 
 dbo.GetEDISmartProxyCustomerActionConfig.sql
+1.) How big is [dbo].[EDISmartProxyActions] table suppose to be?
+2.) Add SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+3.) Add alias to all columns
 
 dbo.GetInternalEmailsForCustomer.sql
+1.) Approved
 
 EDISmartProxyWindowService.sql
+1.) Approved
 
 EDISmartProxyWebService.sql
+1.) The GRANT SELECT permissions need to include the $(AccountDomain)
+2.) Do you need the commented out line?
 
 Notifications.Delivery.sql
+1.) Approved
 
 Notifications.Notification.sql
+1.) Approved
 
 Notifications.Template.sql
+1.) Approved
 
 Notifications.TemplateText.sql
+1.) Approved
 
 dbo.CaseMgmtSubCategory.sql
+1.) Approved
 
 dbo.CaseMgmtSubCategoryReason.sql
+1.) Approved
 
 dbo.CaseMgmtSubCategoryResolution.sql
+1.) Approved
 
 EDISmartProxyWebService.sql
+1.) Do you need the commented out line?
