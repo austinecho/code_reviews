@@ -1,0 +1,11 @@
+dbo.rs_procAdHocShipmentDetail.sql
+1.) Approved
+
+dbo.rs_procTrackandTraceDetail_StandardCustomer_Internal_TestV1.sql
+1.) Approved
+
+dbo.Rs_procarbatchtransactiondetail.sql
+1.) Approved
+
+dbo.rs_procARBatchTransactionDetail_BatchID.sql
+1.) Approved
