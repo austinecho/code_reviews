@@ -1,0 +1,5 @@
+[CarrierPortal].[SeedManagerUserFromUltipro]
+
+1.) Remove the GO on line 24
+2.) Add a semicolon before WITH
+3.) Use Linked Server [DB02NEW] instead of [BATMOBILE-DB02] (doesn't exist yet but I submitted a DevOps request to have it added.)
