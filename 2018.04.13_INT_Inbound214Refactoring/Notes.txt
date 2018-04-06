@@ -28,18 +28,34 @@ Stored Procedure - Inbound.ReprocessStatusUpdate
 4.) CREATE NONCLUSTERED INDEX IX_Inbound_StatusUpdateLog_TrackAndTraceID ON Inbound.StatusUpdateLog (TrackAndTraceID)
 5.) Don't need no lock since you have set transaction isolation level read uncommitted
 6.) Please add header comments (Created By, Created Date, Created Reason, sample exec)
+7.) Do you need to order by TrackAndTraceID? If so, may need to put main select into temp table and then order by TrackAndTraceID on the temp table
 
 Stored Procedure - Inbound.CleanUpTrackAndTraceTables
+1.) Please add header comments (Created By, Created Date, Created Reason)
+2.) How many records to be deleted? Batch size can be bigger than 1,000
 
 Stored Procedure - Inbound.CleanUpInboundStatusUpdateLogTable
+1.) Please add header comments (Created By, Created Date, Created Reason)
+2.) How many records to be deleted? Batch size can be bigger than 1,000
 
 Stored Procedure - Inbound.CleanUpInboundStatusUpdateLogErrorTable
+1.) Please add header comments (Created By, Created Date, Created Reason)
+2.) How many records to be deleted? Batch size can be bigger than 1,000
 
 Stored Procedure - RG.CleanUpShipmentsTables
+1.) Please add header comments (Created By, Created Date, Created Reason)
+2.) How many records to be deleted? Batch size can be bigger than 1,000
 
 Stored Procedure - RG.CleanUpCarrierResponseTables
+1.) Please add header comments (Created By, Created Date, Created Reason)
+2.) How many records to be deleted? Batch size can be bigger than 1,000
 
 Stored Procedure - Inbound.CleanUpDocumentTables
+1.) Please add header comments (Created By, Created Date, Created Reason)
+2.) How many records to be deleted? Batch size can be bigger than 1,000
 
 Job - SqlJob.CleanUpIntegrationTables
-
+1.) Where are these values going to come from?
+:setvar DaysBeforeTNTCleanUp !!DaysBeforeTNTCleanUp!!
+:setvar DaysBeforeLogCleanup !!DaysBeforeLogCleanup!!
+2.) Do you need to do it that way instead of passing it in the EXEC steps?
