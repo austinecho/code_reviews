@@ -1,0 +1,45 @@
+Pre-Deploy Script - Inbound.TrackAndTrace.Table.FirstTimePurge
+1.) Batch size can be bigger than 1,000. Probably 50,000
+2.) Specify columns instead of a.*
+
+TableType - Inbound.TT_StatusUpdate
+1.) RouteToTrackAndTrace doesn't exist in the physical table, what is this column?
+
+Table - Inbound.StatusUpdateLog
+1.) What is ActivityID
+2.) We usually add columns to the end of the table, but since this table is so small it's okay
+3.) MessageGuid is being dropped from DB so it should be removed from DB project
+
+Table - Inbound.StatusUpdateLogError
+1.) Why is ActivityID VARCHAR 64 but 36 in Inbound.StatusUpdateLog
+2.) We usually add columns to the end of the table, but since this table is so small it's okay
+3.) MessageGuid is being dropped from DB so it should be removed from DB project
+
+Stored Procedure - Inbound.InsertStatusUpdate
+1.) Is there a reason there's no transaction?
+
+Stored Procedure - Inbound.SetStatusUpdateToProcessed
+1.) Please add header comments (Created By, Created Date, Created Reason)
+
+Stored Procedure - Inbound.ReprocessStatusUpdate
+1.) Rewrite query to use one CTE to grab TrackAndTraceID and one CTE to grab StatusUpdateLogId and TrackAndTraceID. Then join on those to grab the rest of the columns from Inbound.TrackAndTrace and Inbound.StatusUpdateLog. (Example can be provided)
+2.) Specify INNER JOIN instead of just join
+3.) CREATE NONCLUSTERED INDEX IX_Inbound_TrackAndTrace_Processed_CreatedDate ON Inbound.TrackAndTrace (Processed, CreatedDate)
+4.) CREATE NONCLUSTERED INDEX IX_Inbound_StatusUpdateLog_TrackAndTraceID ON Inbound.StatusUpdateLog (TrackAndTraceID)
+5.) Don't need no lock since you have set transaction isolation level read uncommitted
+6.) Please add header comments (Created By, Created Date, Created Reason, sample exec)
+
+Stored Procedure - Inbound.CleanUpTrackAndTraceTables
+
+Stored Procedure - Inbound.CleanUpInboundStatusUpdateLogTable
+
+Stored Procedure - Inbound.CleanUpInboundStatusUpdateLogErrorTable
+
+Stored Procedure - RG.CleanUpShipmentsTables
+
+Stored Procedure - RG.CleanUpCarrierResponseTables
+
+Stored Procedure - Inbound.CleanUpDocumentTables
+
+Job - SqlJob.CleanUpIntegrationTables
+
