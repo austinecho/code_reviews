@@ -1,0 +1,12 @@
+SSIS - CarrierPortalETL.dtsx
+
+1.) Truncate DB02 Carrier Tables task should execute a SP that truncates the tables instead of having the raw SQL in there.
+2.) For the DB02 Data Flow tasks, the settings should be:
+Keep identity = check
+Table lock = check
+Keep nulls = check
+Check constraints = no check (no need to check constraints)
+Rows per batch = 10,000
+Max Insert commit size = 10,000
+
+SQL Job - CarrierPortalETL.sql

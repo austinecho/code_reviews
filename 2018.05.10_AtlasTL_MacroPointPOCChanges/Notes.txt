@@ -1,0 +1,23 @@
+MacroPoint.GetLoadContactByMPOrderId 
+1.) Remove BookingAgent from CTE. Instead in main select query join CTE on tblLoads on LoadID and then join on tblUsers
+
+MacroPoint.GetLoadData 
+1.) Fix sample execution in comments to be correct SP name
+2.)  AND [c].[TrackingTypeId] IN (4, 5, 6, 7) remove from join and add to WHERE instead
+
+MacroPoint.GetMacroPointOrderIdByLoadGuid
+1.) Alter existing index [IX_Order_LoadGuid] to be named IX_MacroPoint_Order_LoadGuId_IsDeleted and have add IsDeleted to the index.
+Should be:
+CREATE NONCLUSTERED INDEX IX_MacroPoint_Order_LoadGuId_IsDeleted ON MacroPoint.[Order] (LoadGuId, IsDeleted)
+
+dbo.GetTrackingTypeIdByCarrierGuid
+1.) Approved
+
+MacroPoint.Order 
+1.) Approved
+
+MacroPoint.SetMacroPointOrderDeletedByOrderId 
+1.) Approved
+
+MacroPoint.GetLoadContactByLoadId 
+1.) Approved

@@ -1,25 +1,6 @@
-Pre-Deploy Script - Inbound.TrackAndTrace.Table.FirstTimePurge
-1.) Batch size can be bigger than 1,000. Probably 50,000
-2.) Specify columns instead of a.*
-
-TableType - Inbound.TT_StatusUpdate
-1.) RouteToTrackAndTrace doesn't exist in the physical table, what is this column?
-
-Table - Inbound.StatusUpdateLog
-1.) What is ActivityID
-2.) We usually add columns to the end of the table, but since this table is so small it's okay
-3.) MessageGuid is being dropped from DB so it should be removed from DB project
-
-Table - Inbound.StatusUpdateLogError
-1.) Why is ActivityID VARCHAR 64 but 36 in Inbound.StatusUpdateLog
-2.) We usually add columns to the end of the table, but since this table is so small it's okay
-3.) MessageGuid is being dropped from DB so it should be removed from DB project
-
-Stored Procedure - Inbound.InsertStatusUpdate
-1.) Is there a reason there's no transaction?
-
-Stored Procedure - Inbound.SetStatusUpdateToProcessed
-1.) Please add header comments (Created By, Created Date, Created Reason)
+--===============================================================================================================
+-- Approved
+--===============================================================================================================
 
 Stored Procedure - Inbound.ReprocessStatusUpdate
 1.) Rewrite query to use one CTE to grab TrackAndTraceID and one CTE to grab StatusUpdateLogId and TrackAndTraceID. Then join on those to grab the rest of the columns from Inbound.TrackAndTrace and Inbound.StatusUpdateLog. (Example can be provided)
@@ -29,33 +10,87 @@ Stored Procedure - Inbound.ReprocessStatusUpdate
 5.) Don't need no lock since you have set transaction isolation level read uncommitted
 6.) Please add header comments (Created By, Created Date, Created Reason, sample exec)
 7.) Do you need to order by TrackAndTraceID? If so, may need to put main select into temp table and then order by TrackAndTraceID on the temp table
+-- 04/09
+1.) Approved
+
+TableType - Inbound.TT_StatusUpdate
+1.) RouteToTrackAndTrace doesn't exist in the physical table, what is this column?
+-- 04/09
+1.) Approved
+
+Table - Inbound.StatusUpdateLog
+1.) What is ActivityID
+2.) We usually add columns to the end of the table, but since this table is so small it's okay
+3.) MessageGuid is being dropped from DB so it should be removed from DB project
+-- 04/09
+1.) Approved
+
+Table - Inbound.StatusUpdateLogError
+1.) Why is ActivityID VARCHAR 64 but 36 in Inbound.StatusUpdateLog
+2.) We usually add columns to the end of the table, but since this table is so small it's okay
+3.) MessageGuid is being dropped from DB so it should be removed from DB project
+-- 04/09
+1.) Approved
+
+Stored Procedure - Inbound.InsertStatusUpdate
+1.) Is there a reason there's no transaction?
+-- 04/09
+1.) Approved
+
+Stored Procedure - Inbound.SetStatusUpdateToProcessed
+1.) Please add header comments (Created By, Created Date, Created Reason)
+-- 04/09
+1.) Approved
 
 Stored Procedure - Inbound.CleanUpTrackAndTraceTables
 1.) Please add header comments (Created By, Created Date, Created Reason)
 2.) How many records to be deleted? Batch size can be bigger than 1,000
+-- 04/09
+1.) Approved
 
 Stored Procedure - Inbound.CleanUpInboundStatusUpdateLogTable
 1.) Please add header comments (Created By, Created Date, Created Reason)
 2.) How many records to be deleted? Batch size can be bigger than 1,000
+-- 04/09
+1.) Approved
 
 Stored Procedure - Inbound.CleanUpInboundStatusUpdateLogErrorTable
 1.) Please add header comments (Created By, Created Date, Created Reason)
 2.) How many records to be deleted? Batch size can be bigger than 1,000
+-- 04/09
+1.) Approved
 
 Stored Procedure - RG.CleanUpShipmentsTables
 1.) Please add header comments (Created By, Created Date, Created Reason)
 2.) How many records to be deleted? Batch size can be bigger than 1,000
+-- 04/09
+1.) Approved
 
 Stored Procedure - RG.CleanUpCarrierResponseTables
 1.) Please add header comments (Created By, Created Date, Created Reason)
 2.) How many records to be deleted? Batch size can be bigger than 1,000
+-- 04/09
+1.) Approved
 
 Stored Procedure - Inbound.CleanUpDocumentTables
 1.) Please add header comments (Created By, Created Date, Created Reason)
 2.) How many records to be deleted? Batch size can be bigger than 1,000
+-- 04/09
+1.) Approved
 
 Job - SqlJob.CleanUpIntegrationTables
 1.) Where are these values going to come from?
 :setvar DaysBeforeTNTCleanUp !!DaysBeforeTNTCleanUp!!
 :setvar DaysBeforeLogCleanup !!DaysBeforeLogCleanup!!
 2.) Do you need to do it that way instead of passing it in the EXEC steps?
+-- 04/09
+1.) Approved
+
+Pre-Deploy Script - Inbound.TrackAndTrace.Table.FirstTimePurge
+1.) Batch size can be bigger than 1,000. Probably 50,000
+2.) Specify columns instead of a.*
+-- 04/09
+1.) Approved
+
+Pre-Deploy Script - Inbound.InsertStatusUpdate.RemoveMessageGuidAddActivityId.sql
+1.) Approved
