@@ -8,5 +8,10 @@ Keep nulls = check
 Check constraints = no check (no need to check constraints)
 Rows per batch = 10,000
 Max Insert commit size = 10,000
+3.) I don't believe the "Send Email Truncate Fail" is set up correctly because there is no constraint / expression, so it will always send?
+4.) For the Event Handler, did you test that it sends an email on failure?
 
 SQL Job - CarrierPortalETL.sql
+
+1.) Category will need to be "Business Ops"
+2.) Email notify proper team if job fails
