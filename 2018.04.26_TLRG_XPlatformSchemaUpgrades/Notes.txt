@@ -1,0 +1,67 @@
+[Customer].[CustomerAction] 
+1.) ID not changed
+
+[Customer].[CustomerCarrierSettings] 
+1.) ID not changed
+
+[Customer].[GlobalSettings]
+1.) ID not changed
+
+[Customer].[HolidayCalendar]
+1.) ID not changed
+2.) FK not named correctly
+
+[Customer].[SchedulerState] 
+1.) Approved
+
+[Load].[InitiateWaterfallState]
+1.) Not sure if JSON question was answered
+
+[Load].[Load]
+1.) ID not changed
+2.) Not sure if Kenton's varchar questions were answered
+
+[Load].[LoadEquipment]
+1.) ID not changed
+
+[Load].[LoadNotification] 
+1.) ID not changed
+2.) Title still VARCHAR(125)
+
+[Load].[LoadPreBooking] 
+1.) ID not changed
+
+[Load].[LoadRoute]
+1.) ID not changed
+2.) BookingAgentName question may not have been answered
+3.) JSON definition may not have been provided
+
+[Load].[LoadService] 
+1.) ID not changed
+2.) Not sure if [Size] column question was answered
+
+[Load].[LoadStop]
+1.) ID not changed
+
+[Load].[LoadStopShipment]
+1.) ID not changed
+2.) Not sure if [FreightClass] was answered
+
+[Load].[WaterfallLoadListState]
+1.) Primary Key is not named
+
+[Routing].[ArchiveAndRestarteWaterfallState] 
+1.) JSON definition may not have been provided
+2.) Primary Key is not named
+
+[Routing].[ArchiveWaterfallState]
+1.) Primary Key is not named
+
+[Tendering].[TenderingCarrierRequestState]
+1.) Not sure if usage questions were answered
+ 
+[RateSchedule].[SearchFilterTableType]
+1.) I do not see this
+
+[dbo].[TLRGGetLoadsReadyForSync]
+1.) Did Kenton look at this or are there previous comments?
