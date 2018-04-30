@@ -1,0 +1,18 @@
+[Archive].[ArchiveProcessLog]
+1.) PK needs to be named [PK_schema_table_column]
+2.) DF should be named as DF_schema_table_column (Ex. [DF_Archive_ArchiveProcessLog_ProcessName]
+3.) Do you need the [sys] schema?
+
+[Archive].[ArchiveDetailLog]
+1.) PK needs to be named [PK_schema_table_column]
+2.) DF should be named as DF_schema_table_column (Ex. [DF_Archive_ArchiveDetailLog_ArchiveDate]
+3.) Do you need the [sys] schema?
+
+[Archive].[Archive_tblLoadActivityLog]
+1.) Since this is executed on the weekend and only once a week / month, I am guessing we aren't too concerned with the preformance on the SELECT statement. 
+	If that's the case, approved
+
+ArchiveEchoOptimizerData
+1.) The first IF EXISTS statement has wrong job name
+2.) Need to alert DataTeam@echo.com on failure
+3.) Include the time in the schedule name

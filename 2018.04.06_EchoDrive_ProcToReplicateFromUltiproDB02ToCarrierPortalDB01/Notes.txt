@@ -3,3 +3,11 @@
 1.) Remove the GO on line 24
 2.) Add a semicolon before WITH
 3.) Use Linked Server [DB02NEW] instead of [BATMOBILE-DB02] (doesn't exist yet but I submitted a DevOps request to have it added.)
+
+SqlJob.CarrierPortalManagerUsersFromUltipro
+
+1.) The job is on DB01, so it shouldn't be located in "Reporting" in SVN. Instead create a folder and add it to svn://svn.echo.com:4345/SQLJobs
+2.) The job needs a description
+3.) The category should be "Business Ops"
+4.) Owner login should be SA
+5.) Job should email team distro on failure

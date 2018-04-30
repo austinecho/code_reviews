@@ -1,0 +1,12 @@
+* Note * Adding CreatedDate is a very minimal change, however the SP has changed since it was looked at in DC 670 and I do not see it reviewed previously so there are a few changes. Let me know if there are any questions.
+
+
+[CarrierPortal].[GetLoadStopsActivityLogMilestonesByLoadGuid]
+
+1.) Change the CTEs to Temp Tables 
+    - You can use the CTE name for the Temp Table name which should make it fairly quick to change up.
+    - Usually we reccomend CTEs, but preformance was better with Temp Tables this time.
+
+2.) Move the WHERE clause from load_activity_log_data to load_activity_log_ids and include CreatedDate in the select statement
+
+3.) For load_activity_log_data when joining to tblLoadActivityLog join on CreatedDate and ActivityLogId (CreatedDate first)
