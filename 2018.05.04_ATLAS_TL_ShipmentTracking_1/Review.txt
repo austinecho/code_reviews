@@ -1,0 +1,9 @@
+enum should have reference table if stored as ID
+
+
+SystemIsDeleted required on entities or only root aggregate ([ShipmentTracking].[ShipmentIdentifier]
+, [ShipmentTracking].[ShipmentStop])
+
+Time zone awareness
+
+No more reference schema

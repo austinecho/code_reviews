@@ -1,0 +1,12 @@
+[CarrierPortal].[GetLoadStopsByLoadGuid] 
+1.) There's a BEGIN but no END for the SP. Deploy will fail
+-- 05/03
+1.) Approved
+
+[CarrierPortal].[vwOptimizerLoadStops] 
+1.) Approved
+
+[dbo].[tblLoadActivityData]
+1.) Index should be named [[IX_tblLoadActivityData_LoadStopId_Incl]
+-- 05/03
+1.) Approved

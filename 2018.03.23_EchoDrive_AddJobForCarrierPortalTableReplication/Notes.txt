@@ -10,8 +10,12 @@ Rows per batch = 10,000
 Max Insert commit size = 10,000
 3.) I don't believe the "Send Email Truncate Fail" is set up correctly because there is no constraint / expression, so it will always send?
 4.) For the Event Handler, did you test that it sends an email on failure?
+-- 05/03
+1.) In the control flow, how will it know if truncation failed? Right now I believe that email will send every time. (Is it getting @Failure from the SP? May need expression.)
+2.) Need to configure the dtsConfig files (xml and Excel in the Environment > Template folder)
 
 SQL Job - CarrierPortalETL.sql
 
 1.) Category will need to be "Business Ops"
 2.) Email notify proper team if job fails
+3.) @owner_login_name needs to be SA

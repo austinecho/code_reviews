@@ -1,0 +1,29 @@
+ShipmentTracking.Tracking
+1.) I think it would be best to include Version with the other system required columns.
+2.) FKs should be named as FK_ChildSchema_ ChildTableName_PaentSchema_ParentTableName_ParentTableColumnName
+3.) CIX_ is for clustered index. This should just be UX_ since it is unique.
+4.) Should there be any default constraints for the NOT NULL columns?
+-- 05/03
+1.) Please add Version column to above "SystemIsDeleted" column
+
+Reference.TrackingMethod (includes predeploy script)
+1.) PK should be named following PK_Schema_tableName_Column
+2.) CIX_ is for clustered index. This should just be UX_ since it is unique.
+3.) Unique index should be named following UX_Schema_tableName_Column
+-- 05/03
+1.) Did you mean to add the Unique index on TrackingMethod? TrackingMethodID is the PK and already unique
+
+ShipmentTracking.ShipmentStop
+1.) Approved
+
+CreateShipmentTracking
+1.) Looks okay
+
+RegisterLocationUpdate
+1.) Looks okay
+
+ShipmentTracking Index
+1.) Looking over
+
+ENUMS
+1.) There is currently a discussion taking place on whether or not ENUMs should have reference tables. If the descision to enforce this is made, reference tables will need to be created for the ENUM columns in this review.
