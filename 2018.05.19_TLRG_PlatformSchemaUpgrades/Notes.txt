@@ -1,78 +1,91 @@
-State Machine/Customer/SchedulerState.sql
 
 State Machine/RateSchedule/UploadLineHaulRateScheduleState.sql
+1.) Primary Key not named
+2.) Active should be IsActive since it's a bit
 
-Load.LoadStop.sql
 
-Load.LoadStopShipment.sql
-
-Routing.LoadEquipment.sql
-
-Routing.LoadSpecialService.sql
-
-Routing.LoadStop.sql
-
-Routing.LoadStopShipment.sql
 
 State Machine/RateSchedule/InitiateLineHaulScheduleUpgradeState.sql
+1.) Should be IsFailed because bit
 
 RateSchedule.EchoFuelSurcharge.sql
+1.) Approved
 
 Carrier.Carrier
+1.) Approved
 
 Carrier.Contact
+1.) Approved
 
 Carrier.HoursOfOperation
+1.) Approved
 
 Carrier.OptimizerUpdateDomainState
+1.) Approved
 
 Carrier.SyncOptimizerToDomainState
+1.) Approved
 
 CarrierLane.CarrierLane
+1.) Approved
 
 CarrierLane.Customer
+1.) Approved
 
 CarrierLane.LaneEquipment
+1.) Approved
 
 CarrierLane.LaneStop
+1.) Approved
 
 Customer.Customer
+1.) Approved
 
 Customer.HoursOfOperation
+1.) Approved
 
 Customer.OptimizerSyncActivityState
+1.) Approved
 
 Customer.OptimizerUpdateDomainState
+1.) Approved
 
 dbo.Version
+1.) Approved
 
 RateSchedule.LineHaul
+1.) The index [IX_RateSchedule_Linehaul_AggregateRateScheduleId_INC] can be dropped since the SP was rewritten
 
 RateSchedule.LineHaulStop
+1.) Approved
 
 RateSchedule.RateSchedule
+1.) Approved
 
 RateSchedule.Services
+1.) Approved
 
 RateSchedule.UploadEchoFuelScheduleState
+1.) Should be IsFailed for bit
 
 RateSchedule.UploadFuelScheduleState
+1.) Should be IsFailed for bit
 
 RateSchedule.UploadLineHaulRateScheduleState
+1.) Primary Key is not named
+2.) Should be IsActive for bit
 
 RateSchedule.UploadSpecialRateScheduleState
+1.) Typo in PK name [PK_RateSchedule_UplaodSpecialRateScheduleState_CorrelationId]
+2.) Should be IsFailed
 
 Routing.Load
+1.) Do you want decimals in the TotalMileage column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
 
 Routing.Route
+1.) Do you want decimals in the TotalMileage column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
 
-Routing.RouteItemizedPrice
 
-Routing.RouteSpecialServices
-
-Routing.RouteTenderAction
-
-Routing.Routing
 
 Routing.TenderingGlobalResponseUpdateState
 
@@ -125,3 +138,39 @@ Routing.ArchiveAndRestartWaterfallState
 Routing.ArchiveWaterfallState
 
 Tendering.TenderingCarrierRequestState
+
+--=======================================================================================================
+-- Approved
+--=======================================================================================================
+State Machine/Customer/SchedulerState.sql
+1.) Approved
+
+Load.LoadStop.sql
+1.) Approved
+
+Load.LoadStopShipment.sql
+1.) Approved
+
+Routing.LoadEquipment.sql
+1.) Approved
+
+Routing.LoadSpecialService.sql
+1.) Approved
+
+Routing.LoadStop.sql
+1.) Approved
+
+Routing.LoadStopShipment.sql
+1.) Approved
+
+Routing.RouteItemizedPrice
+1.) Approved
+
+Routing.RouteSpecialServices
+1.) Approved
+
+Routing.RouteTenderAction
+1.) Approved
+
+Routing.Routing
+1.) Approved
