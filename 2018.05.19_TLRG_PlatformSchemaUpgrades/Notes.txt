@@ -1,88 +1,143 @@
-State Machine/RateSchedule/UploadLineHaulRateScheduleState.sql
-1.) Primary Key not named
-2.) Active should be IsActive since it's a bit
-
-State Machine/RateSchedule/InitiateLineHaulScheduleUpgradeState.sql
-1.) Should be IsFailed because bit
-
-RateSchedule.LineHaul
-1.) The index [IX_RateSchedule_Linehaul_AggregateRateScheduleId_INC] can be dropped since the SP was rewritten
-
-RateSchedule.UploadEchoFuelScheduleState
-1.) Should be IsFailed for bit
-
-RateSchedule.UploadFuelScheduleState
-1.) Should be IsFailed for bit
-
-RateSchedule.UploadLineHaulRateScheduleState
-1.) Primary Key is not named
-2.) Should be IsActive for bit
-
-RateSchedule.UploadSpecialRateScheduleState
-1.) Typo in PK name [PK_RateSchedule_UplaodSpecialRateScheduleState_CorrelationId]
-2.) Should be IsFailed
-
-Routing.Load
-1.) Do you want decimals in the TotalMileage column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
-
-Routing.Route
-1.) Do you want decimals in the TotalMileage column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
-
-Routing.TenderingGlobalResponseUpdateState
-1.) Should be IsFailed for bit
-
-Routing.TenderingLoadStatusUpdateState
-1.) Should be IsFailed for bit
-
-Routing.TenderingStatusUpdateState
-1.) Should be IsFailed for bit
-
-Routing.WaterfallState
-1.) Should be IsResync for bit
-2.) Should be IsFailed for bit
-
-Routing.WaterfallTenderingState
-1.) Should be IsFailed for bit
-
-Tendering.TenderingRequestState
-1.) Should be IsFailed for bit
-
+--=======================================================================================================
+-- Approved
+--=======================================================================================================
 Customer.GlobalSettings
 1.) Needs named primary key
 2.) Should be IsAutoSyncLoadEnabled because bit
+--05/11
+1.) Approved
 
 Load.InitiateWaterfallState
 1.) Needs named primary key
 2.) Should be IsFailed because bit
+--05/11
+1.) Approved
+
+Load.WaterfallLoadListState
+1.) Needs named primary key
+--05/11
+1.) Approved
+
+RateSchedule.InitiateLineHaulScheduleUpgradeState
+1.) Should be IsFailed because bit
+--05/11
+1.) Approved
+
+RateSchedule.UploadEchoFuelScheduleState
+1.) Should be IsFailed for bit
+--05/11
+1.) Approved
+
+RateSchedule.UploadFuelScheduleState
+1.) Should be IsFailed for bit
+--05/11
+1.) Approved
+
+RateSchedule.UploadLineHaulRateScheduleState
+1.) Primary Key is not named
+2.) Should be IsActive for bit
+--05/11
+1.) Approved
+
+RateSchedule.UploadSpecialRateScheduleState
+1.) Typo in PK name [PK_RateSchedule_UplaodSpecialRateScheduleState_CorrelationId]
+2.) Should be IsFailed
+--05/11
+1.) Approved
+
+Routing.ArchiveAndRestartWaterfallState
+1.) Primary key needs to be named
+--05/11
+1.) Approved
+
+Routing.ArchiveWaterfallState
+1.) Primary key needs to be named
+--05/11
+1.) Approved
+
+Routing.TenderingGlobalResponseUpdateState
+1.) Should be IsFailed for bit
+--05/11
+1.) Approved
+
+Routing.TenderingLoadStatusUpdateState
+1.) Should be IsFailed for bit
+--05/11
+1.) Approved
+
+Routing.TenderingStatusUpdateState
+1.) Should be IsFailed for bit
+--05/11
+1.) Approved
+
+Routing.WaterfallState
+1.) Should be IsResync for bit
+2.) Should be IsFailed for bit
+--05/11
+1.) Approved
+
+Routing.WaterfallTenderingState
+1.) Should be IsFailed for bit
+--05/11
+1.) Approved
+
+Tendering.TenderingCarrierRequestState
+1.) Should be IsFailed because bit
+--05/11
+1.) Approved
+
+Tendering.TenderingRequestState
+1.) Should be IsFailed for bit
+--05/11
+1.) Approved
 
 Load.Load
 1.) Do you want decimals in the TotalMileage column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
 3.) Same for TotalWeight column ^
+--05/11
+1.) Approved
 
 Load.LoadNotification
 1.) This is named wrong in the DB project / git repo according to the others. This is Load.Notification instead of Load.LoadNotification
+--05/11
+1.) Approved
 
 Load.LoadRoute
 1.) Do you want decimals in the BookedMilesToPickUp column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
+--05/11
+1.) Approved
 
-Load.WaterfallLoadListState
-1.) Needs named primary key
+RateSchedule.LineHaul
+1.) The index [IX_RateSchedule_Linehaul_AggregateRateScheduleId_INC] can be dropped since the SP was rewritten
+--05/11
+1.) Approved
 
-RateSchedule.InitiateLineHaulScheduleUpgradeState
+Routing.Load
+1.) Do you want decimals in the TotalMileage column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
+--05/11
+1.) Approved
+
+Routing.Route
+1.) Do you want decimals in the TotalMileage column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
+--05/11
+1.) Approved
+
+State Machine/RateSchedule/UploadLineHaulRateScheduleState.sql
+1.) Primary Key not named
+2.) Active should be IsActive since it's a bit
+--05/11
+1.) Approved
+
+State Machine/RateSchedule/InitiateLineHaulScheduleUpgradeState.sql
 1.) Should be IsFailed because bit
+--05/11
+1.) Approved
 
-Routing.ArchiveAndRestartWaterfallState
-1.) Primary key needs to be named
+Pre-Deploy State Machine Clear for 5-19.sql
+1.) Use TRUNCATE TABLE instead of DELETE FROM. Delete From goes row by row and uses transaction log. Truncate Table will just clear it out and reset the identity
+--05/11
+1.) Approved
 
-Routing.ArchiveWaterfallState
-1.) Primary key needs to be named
-
-Tendering.TenderingCarrierRequestState
-1.) Should be IsFailed because bit
-
---=======================================================================================================
--- Approved
---=======================================================================================================
 State Machine/Customer/SchedulerState.sql
 1.) Approved
 
