@@ -1,12 +1,96 @@
-
 State Machine/RateSchedule/UploadLineHaulRateScheduleState.sql
 1.) Primary Key not named
 2.) Active should be IsActive since it's a bit
 
-
-
 State Machine/RateSchedule/InitiateLineHaulScheduleUpgradeState.sql
 1.) Should be IsFailed because bit
+
+RateSchedule.LineHaul
+1.) The index [IX_RateSchedule_Linehaul_AggregateRateScheduleId_INC] can be dropped since the SP was rewritten
+
+RateSchedule.UploadEchoFuelScheduleState
+1.) Should be IsFailed for bit
+
+RateSchedule.UploadFuelScheduleState
+1.) Should be IsFailed for bit
+
+RateSchedule.UploadLineHaulRateScheduleState
+1.) Primary Key is not named
+2.) Should be IsActive for bit
+
+RateSchedule.UploadSpecialRateScheduleState
+1.) Typo in PK name [PK_RateSchedule_UplaodSpecialRateScheduleState_CorrelationId]
+2.) Should be IsFailed
+
+Routing.Load
+1.) Do you want decimals in the TotalMileage column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
+
+Routing.Route
+1.) Do you want decimals in the TotalMileage column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
+
+Routing.TenderingGlobalResponseUpdateState
+1.) Should be IsFailed for bit
+
+Routing.TenderingLoadStatusUpdateState
+1.) Should be IsFailed for bit
+
+Routing.TenderingStatusUpdateState
+1.) Should be IsFailed for bit
+
+Routing.WaterfallState
+1.) Should be IsResync for bit
+2.) Should be IsFailed for bit
+
+Routing.WaterfallTenderingState
+1.) Should be IsFailed for bit
+
+Tendering.TenderingRequestState
+1.) Should be IsFailed for bit
+
+Customer.GlobalSettings
+1.) Needs named primary key
+2.) Should be IsAutoSyncLoadEnabled because bit
+
+Load.InitiateWaterfallState
+1.) Needs named primary key
+2.) Should be IsFailed because bit
+
+Load.Load
+1.) Do you want decimals in the TotalMileage column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
+3.) Same for TotalWeight column ^
+
+Load.LoadNotification
+1.) This is named wrong in the DB project / git repo according to the others. This is Load.Notification instead of Load.LoadNotification
+
+Load.LoadRoute
+1.) Do you want decimals in the BookedMilesToPickUp column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
+
+Load.WaterfallLoadListState
+1.) Needs named primary key
+
+RateSchedule.InitiateLineHaulScheduleUpgradeState
+1.) Should be IsFailed because bit
+
+Routing.ArchiveAndRestartWaterfallState
+1.) Primary key needs to be named
+
+Routing.ArchiveWaterfallState
+1.) Primary key needs to be named
+
+Tendering.TenderingCarrierRequestState
+1.) Should be IsFailed because bit
+
+--=======================================================================================================
+-- Approved
+--=======================================================================================================
+State Machine/Customer/SchedulerState.sql
+1.) Approved
+
+Load.LoadStop.sql
+1.) Approved
+
+Load.LoadStopShipment.sql
+1.) Approved
 
 RateSchedule.EchoFuelSurcharge.sql
 1.) Approved
@@ -53,104 +137,6 @@ Customer.OptimizerUpdateDomainState
 dbo.Version
 1.) Approved
 
-RateSchedule.LineHaul
-1.) The index [IX_RateSchedule_Linehaul_AggregateRateScheduleId_INC] can be dropped since the SP was rewritten
-
-RateSchedule.LineHaulStop
-1.) Approved
-
-RateSchedule.RateSchedule
-1.) Approved
-
-RateSchedule.Services
-1.) Approved
-
-RateSchedule.UploadEchoFuelScheduleState
-1.) Should be IsFailed for bit
-
-RateSchedule.UploadFuelScheduleState
-1.) Should be IsFailed for bit
-
-RateSchedule.UploadLineHaulRateScheduleState
-1.) Primary Key is not named
-2.) Should be IsActive for bit
-
-RateSchedule.UploadSpecialRateScheduleState
-1.) Typo in PK name [PK_RateSchedule_UplaodSpecialRateScheduleState_CorrelationId]
-2.) Should be IsFailed
-
-Routing.Load
-1.) Do you want decimals in the TotalMileage column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
-
-Routing.Route
-1.) Do you want decimals in the TotalMileage column? If so, decimal should be specified such as (18,2). If it is not specified, it defaults to (18,0) which means it will just be an int and not have the decimal. If you don't want values to the right of the decimal point, it is fine how it is.
-
-
-
-Routing.TenderingGlobalResponseUpdateState
-
-Routing.TenderingLoadStatusUpdateState
-
-Routing.TenderingStatusUpdateState
-
-Routing.WaterfallState
-
-Routing.WaterfallTenderingState
-
-Tendering.SchedulerState
-
-Tendering.TenderAction
-
-Tendering.Tendering
-
-Tendering.TenderingRequestState
-
-Customer.CustomerAction
-
-Customer.CustomerCarrierSettings
-
-Customer.GlobalSettings
-
-Customer.HolidayCalendar
-
-Customer.SchedulerState
-
-Load.InitiateWaterfallState
-
-Load.Load
-
-Load.LoadEquipment
-
-Load.LoadNotification
-
-Load.LoadPreBooking
-
-Load.LoadRoute
-
-Load.LoadService
-
-Load.WaterfallLoadListState
-
-RateSchedule.InitiateLineHaulScheduleUpgradeState
-
-Routing.ArchiveAndRestartWaterfallState
-
-Routing.ArchiveWaterfallState
-
-Tendering.TenderingCarrierRequestState
-
---=======================================================================================================
--- Approved
---=======================================================================================================
-State Machine/Customer/SchedulerState.sql
-1.) Approved
-
-Load.LoadStop.sql
-1.) Approved
-
-Load.LoadStopShipment.sql
-1.) Approved
-
 Routing.LoadEquipment.sql
 1.) Approved
 
@@ -173,4 +159,43 @@ Routing.RouteTenderAction
 1.) Approved
 
 Routing.Routing
+1.) Approved
+
+RateSchedule.LineHaulStop
+1.) Approved
+
+RateSchedule.RateSchedule
+1.) Approved
+
+RateSchedule.Services
+1.) Approved
+
+Tendering.SchedulerState
+1.) Approved
+
+Tendering.TenderAction
+1.) Approved
+
+Tendering.Tendering
+1.) Approved
+
+Customer.CustomerAction
+1.) Approved
+
+Customer.CustomerCarrierSettings
+1.) Approved
+
+Customer.HolidayCalendar
+1.) Approved
+
+Customer.SchedulerState
+1.) Approved
+
+Load.LoadService
+1.) Approved
+
+Load.LoadPreBooking
+1.) Approved
+
+Load.LoadEquipment
 1.) Approved
