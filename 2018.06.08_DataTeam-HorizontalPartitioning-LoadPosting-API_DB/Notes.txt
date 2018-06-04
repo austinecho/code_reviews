@@ -1,0 +1,40 @@
+1_LoadPosting_FileGroup_PartitionFunctionAndScheme.sql
+1.) Approved
+
+3a_DB01_LoadPosting_Schema_Change.sql
+1.) Approved
+
+4_LoadPosting_Partition_Validation.sql
+1.) Approved
+
+DEV__1_LoadPosting_FileGroup_PartitionFunctionAndScheme.sql
+1.) Approved
+
+DEV__3a_DB01_LoadPosting_Schema_Change.sql
+1.) Approved
+
+dbo.LoadPostStatus_Audit.sql
+1.) Approved
+
+1_API_DB_FileGroup_PartitionFunctionAndScheme.sql
+1.) Approved
+
+3a_DB01_API_DB_SchemaChanges.sql
+1.) Why are you dropping CIX on line 284?
+2.) Don't you want CIX on APIRequestLineItem as well?
+3.) No PK for APIRequestLineItem?
+
+4_API_DB_Partition_Validation.sql
+1.) Approved
+
+DEV__1_API_DB_FileGroup_PartitionFunctionAndScheme.sql
+1.) Approved
+
+DEV_3a_DB01_API_DB_SchemaChanges.sql
+1.) Approved
+
+dbo.APIRequest.sql
+1.) DF should be named as DF_APIRequest_RequestRecievedDT
+
+dbo.APIRequestLineItem.sql
+1.) This table has always been a heap?

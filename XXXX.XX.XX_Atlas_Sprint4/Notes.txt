@@ -1,0 +1,17 @@
+dbo.ActivityLog_Insert.sql
+1.) Approved
+
+Atlas.GetShipmentTender.sql
+1.) Approved
+
+Saga.CreateShipment
+1.) Approved
+
+Saga.CreateShipmentAccessorial
+1.) Approved
+
+Saga.CreateShipmentLineItem
+1.) Approved
+
+Saga.CreateShipmentShipmentIdentifier
+1.) Approved
